@@ -2,6 +2,7 @@ import "dotenv/config"
 import express from "express"
 import cors from "cors"
 import morgan from "morgan"
+import authRouter from "./routers/auth.js"
 import userRouter from "./routers/users.js"
 
 const app = express()
@@ -12,7 +13,8 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // Routers
-app.use("/user", userRouter)
+app.use("/", authRouter)
+app.use("/users", userRouter)
 
 // catch-all
 app.get("*", (req, res) => {
