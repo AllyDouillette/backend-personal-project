@@ -1,0 +1,23 @@
+{
+  "name": "backend-personal-project",
+  "version": "1.0.0",
+  "description": "This is the corresponding backend / server project for the flashcard app, see: https://github.com/AllyDouillette/frontend-personal-project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AllyDouillette/backend-personal-project.git"
+  },
+  "keywords": [
+    "flashcard",
+    "learning"
+  ],
+  "author": "Rebecca Noy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AllyDouillette/backend-personal-project/issues"
+  },
+  "homepage": "https://github.com/AllyDouillette/backend-personal-project#readme"
+}
