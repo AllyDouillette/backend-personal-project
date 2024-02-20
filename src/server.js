@@ -11,7 +11,8 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // Routers
-// app.use('/', routerName)
+const 
+app.use('/user', routerName)
 
 // catch-all
 app.get('*', (req, res) => {
