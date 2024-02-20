@@ -7,7 +7,6 @@ erDiagram
         createdAt datetime
         updatedAt datetime
     }
-    USER ||--o{ CATEGORY : creates
 
     CATEGORY {
         int id
@@ -15,8 +14,7 @@ erDiagram
         createdAt datetime
         updatedAt datetime
     }
-    CATEGORY ||--|{ CARD : contains
-    USER ||--|{ CARD : creates
+
     CARD {
         int id
         string  UserUUID
@@ -27,4 +25,8 @@ erDiagram
         createdAt datetime
         updatedAt datetime
     }
+
+    USER ||--o{ CATEGORY : creates
+    CATEGORY ||--|{ CARD : contains
+    USER ||--|{ CARD : creates
 ```
