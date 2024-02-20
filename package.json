@@ -9,6 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src"
   },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AllyDouillette/backend-personal-project.git"

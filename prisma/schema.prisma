@@ -1,26 +1,24 @@
-// This is your Prisma schema file: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url = env("DATABASE_URL")
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model User {
-  id  String @db.Uuid
-  email String  @unique
-  password  String  @unique
+  email    String @unique
+  password String @unique
+  id       String @id @default(uuid())
 }
 
 model Category {
-  id  Int @id @default(autoincrement())
-  name  String
+  id   Int    @id @default(autoincrement())
+  name String
 }
 
 model Card {
-  id  Int @id @default(autoincrement())
+  id Int @id @default(autoincrement())
 }
