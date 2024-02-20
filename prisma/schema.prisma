@@ -21,8 +21,8 @@ model User {
 model Category {
   id        Int      @id @default(autoincrement())
   name      String
-  userUUID  String
-  User      User     @relation(fields: [userUUID], references: [id])
+  ownerId   String
+  Owner     User     @relation(fields: [ownerId], references: [id])
   Card      Card[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -30,8 +30,8 @@ model Category {
 
 model Card {
   id          Int      @id @default(autoincrement())
-  userUUID    String
-  User        User     @relation(fields: [userUUID], references: [id])
+  ownerId     String
+  Owner       User     @relation(fields: [ownerId], references: [id])
   categoryId  Int
   Category    Category @relation(fields: [categoryId], references: [id])
   prompt      String
