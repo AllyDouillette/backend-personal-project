@@ -5,6 +5,7 @@
   "description": "This is the corresponding backend / server project for the flashcard app, see: https://github.com/AllyDouillette/frontend-personal-project",
   "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src"
   },
@@ -23,12 +24,16 @@
   },
   "homepage": "https://github.com/AllyDouillette/backend-personal-project#readme",
   "devDependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "eslint": "^8.56.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.33.2",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
     "prettier": "^3.2.5",
     "prisma": "^5.9.1"
   }
