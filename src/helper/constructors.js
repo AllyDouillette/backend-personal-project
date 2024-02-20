@@ -5,6 +5,14 @@ export class User {
   }
 }
 
+export class Category {
+  constructor (name = 'untitled') {
+    this.name = name
+  }
+
+  setOwner
+}
+
 export class Card {
   constructor (prompt, answer, hint = '') {
     this.prompt = prompt
