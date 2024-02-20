@@ -3,7 +3,13 @@ import { PrismaClient } from "@prisma/client"
 const prisma = new PrismaClient()
 
 export const createUserDb = async (email, password) => {
-	return await prisma.user.create({ email, password })
+	console.log("inside domain")
+	const user = await prisma.user.create({ data: {
+		email,
+		password
+	}
+	})
+	return user
 }
 
 export const getUserByIdDb = async (id) => {
