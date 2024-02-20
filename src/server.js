@@ -3,7 +3,7 @@ import express from "express"
 import cors from "cors"
 import morgan from "morgan"
 import authRouter from "./routers/auth.js"
-import userRouter from "./routers/users.js"
+import userRouter from "./routers/user.js"
 
 const app = express()
 app.disable("x-powered-by")

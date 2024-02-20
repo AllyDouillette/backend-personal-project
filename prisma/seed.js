@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client"
 import { Card, Category } from "../src/helper/constructors.js"
-import  { createUserDb } from "../src/domain/users.js"
+import  { createUserDb } from "../src/domain/user.js"
 const prisma = new PrismaClient()
 
 async function seed () {

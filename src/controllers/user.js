@@ -1,5 +1,5 @@
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
-import { createUserDb, getUserByIdDb, getUserByEmail } from "../domain/users.js"
+import { createUserDb, getUserByIdDb, getUserByEmail } from "../domain/user.js"
 import { constructMessageResponse, constructDataResponse } from "../helper/response.js"
 import { comparePasswords } from "../helper/hashing.js"
 import { generateToken } from "../helper/authentication.js"
