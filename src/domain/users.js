@@ -22,3 +22,12 @@ export const getUserByIdDb = async (id) => {
 	delete user.password
 	return user
 }
+
+export const getUserByEmail = async (email) => {
+	const user = await prisma.user.findUnique({
+		where: {
+			email
+		}
+	})
+	return user
+}
