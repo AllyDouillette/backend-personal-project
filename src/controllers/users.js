@@ -2,7 +2,7 @@ import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js
 import { createUserDb, getUserByIdDb } from "../domain/users.js"
 import { constructResponse } from "../helper/response.js"
 
-export const registerUser = (req, res) => {
+export const registerUser = async (req, res) => {
 	const { email, password } = req.body
 
 	if ( !email || !password ) {
@@ -10,7 +10,7 @@ export const registerUser = (req, res) => {
 	}
 
 	try {
-		const user = createUserDb(email, password)
+		const user = await createUserDb(email, password)
 		return constructResponse(res, 201, user)
 	} catch (error) {
 		if (error instanceof PrismaClientKnownRequestError) {
@@ -20,8 +20,8 @@ export const registerUser = (req, res) => {
 	}
 }
 
-export const getUserById = (req, res) => {
-	const { id } = req.body
-	const user = getUserByIdDb(id)
-	return res.status(200).json({ user })
+export const getUserById = async (req, res) => {
+	const { id } = req.params
+	const user = await getUserByIdDb(id)
+	return constructResponse(res, 200, "", user)
 }
