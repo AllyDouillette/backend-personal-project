@@ -4,6 +4,7 @@ import cors from "cors"
 import morgan from "morgan"
 import authRouter from "./routers/auth.js"
 import userRouter from "./routers/user.js"
+import categoryRouter from "./routers/category.js"
 
 const app = express()
 app.disable("x-powered-by")
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: true }))
 // Routers
 app.use("/", authRouter)
 app.use("/users", userRouter)
+app.use("/categories", categoryRouter)
 
 // catch-all
 app.get("*", (req, res) => {
