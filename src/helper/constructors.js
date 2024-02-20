@@ -10,7 +10,9 @@ export class Category {
     this.name = name
   }
 
-  setOwner
+  setOwner (id) {
+    this.ownerId = id
+  }
 }
 
 export class Card {
@@ -24,7 +26,7 @@ export class Card {
     this.categoryId = id
   }
 
-  setUser (uuid) {
-    this.userUUID = uuid
+  setOwner (id) {
+    this.ownerId = id
   }
 }
