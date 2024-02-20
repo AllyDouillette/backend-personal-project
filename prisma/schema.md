@@ -10,18 +10,13 @@ erDiagram
 
     CATEGORY {
         int id
-        string title
-        Cards Card[]
+        string name
         createdAt datetime
         updatedAt datetime
     }
 
     CARD {
         int id
-        string  UserUUID
-        User  User
-        int CategoryId
-        Category Category
         string prompt
         string answer
         string hint
