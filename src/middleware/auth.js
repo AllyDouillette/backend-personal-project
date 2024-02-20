@@ -1,4 +1,4 @@
-import { constructMessageResponse } from "../helper/response"
+import { constructMessageResponse } from "../helper/response.js"
 import { verifyToken } from "../helper/authentication.js"
 
 export const checkToken = async (req, res, next) => {
@@ -13,7 +13,7 @@ export const checkToken = async (req, res, next) => {
 	}
 
 	if (verifyToken(token)) {
-		next()
+		return next()
 	}
 
 	return constructMessageResponse(res, 500)

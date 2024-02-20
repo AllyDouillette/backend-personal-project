@@ -57,5 +57,10 @@ export const loginUser = async (req, res) => {
 export const getUserById = async (req, res) => {
 	const { id } = req.params
 	const user = await getUserByIdDb(id)
+
+	if (!user) {
+		return constructMessageResponse(res, 404)
+	}
+
 	return constructDataResponse(res, 200, { user })
 }
