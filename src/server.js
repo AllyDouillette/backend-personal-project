@@ -2,6 +2,7 @@ import "dotenv/config"
 import express from "express"
 import cors from "cors"
 import morgan from "morgan"
+import userRouter from "./routers/users.js"
 
 const app = express()
 app.disable("x-powered-by")
@@ -11,7 +12,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // Routers
-import userRouter from "./routers/users"
 app.use("/user", userRouter)
 
 // catch-all
