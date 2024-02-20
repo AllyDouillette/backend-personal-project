@@ -11,6 +11,7 @@ erDiagram
     CATEGORY {
         int id
         string title
+        Cards Card[]
         createdAt datetime
         updatedAt datetime
     }
@@ -19,9 +20,13 @@ erDiagram
         int id
         string  UserUUID
         User  User
+        int CategoryId
+        Category Category
         string prompt
         string answer
+        string hint
         int level
+        int repetitions
         createdAt datetime
         updatedAt datetime
     }

@@ -9,16 +9,36 @@ datasource db {
 }
 
 model User {
-  email    String @unique
-  password String @unique
-  id       String @id @default(uuid())
+  id        String     @id @default(uuid())
+  email     String     @unique
+  password  String     @unique
+  Category  Category[]
+  Card      Card[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
 }
 
 model Category {
-  id   Int    @id @default(autoincrement())
-  name String
+  id        Int      @id @default(autoincrement())
+  name      String
+  userUUID  String
+  User      User     @relation(fields: [userUUID], references: [id])
+  Card      Card[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Card {
-  id Int @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
+  userUUID    String
+  User        User     @relation(fields: [userUUID], references: [id])
+  categoryId  Int
+  Category    Category @relation(fields: [categoryId], references: [id])
+  prompt      String
+  answer      String
+  hint        String?
+  level       Int      @default(0)
+  repetitions Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
