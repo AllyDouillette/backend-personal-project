@@ -19,5 +19,6 @@ export const getUserByIdDb = async (id) => {
 			id
 		}
 	})
+	delete user.password
 	return user
 }
