@@ -15,4 +15,8 @@ export class Card {
   setCategory (id) {
     this.categoryId = id
   }
+
+  setUser (uuid) {
+    this.userUUID = uuid
+  }
 }
