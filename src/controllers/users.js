@@ -1,4 +1,5 @@
-import { getUserByIdDb } from "../domain/users.js"
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
+import { createUserDb, getUserByIdDb } from "../domain/users.js"
 import { constructResponse } from "../helper/response.js"
 
 export const registerUser = (req, res) => {
@@ -6,6 +7,16 @@ export const registerUser = (req, res) => {
 
 	if ( !email || !password ) {
 		return constructResponse(res, 400)
+	}
+
+	try {
+		const user = createUserDb(email, password)
+		return constructResponse(res, 201, user)
+	} catch (error) {
+		if (error instanceof PrismaClientKnownRequestError) {
+			console.log("Known Prisma error", error)
+		}
+		return constructResponse(res, 500, "Something went wrong.")
 	}
 }
 
