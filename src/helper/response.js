@@ -63,6 +63,9 @@ const statusMessages = {
 	511: "Network Authentication Required"
 }
 
-export const constructResponse = (res, status, message = statusMessages.status || "unknown error", data) => {
-	return res.status(status).statusText(message).json({ data	})
+export const constructResponse = (res, status, message, data) => {
+	return res.status(status).json({
+		message: message || statusMessages[status] || "unknown error",
+		data
+	})
 }
