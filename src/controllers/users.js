@@ -11,9 +11,12 @@ export const registerUser = async (req, res) => {
 
 	try {
 		const user = await createUserDb(email, password)
-		return constructResponse(res, 201, user)
+		return constructResponse(res, 201, "", user)
 	} catch (error) {
 		if (error instanceof PrismaClientKnownRequestError) {
+			if (error.code === "P2002") {
+				return constructResponse(res, 403, "username already taken")
+			}
 			console.log("Known Prisma error", error)
 		}
 		return constructResponse(res, 500, "Something went wrong.")

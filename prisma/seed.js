@@ -1,12 +1,10 @@
 import { PrismaClient } from "@prisma/client"
-import { User, Card, Category } from "../src/helper/constructors.js"
+import { Card, Category } from "../src/helper/constructors.js"
+import  { createUserDb } from "../src/domain/users.js"
 const prisma = new PrismaClient()
 
 async function seed () {
-	const newUser = new User("Test@Something.com", "password123")
-	const user = await prisma.user.create({
-		data: newUser
-	})
+	const user = await createUserDb("Test@Something.com", "password123")
 	console.log(user)
 
 	const newCategory = new Category("Test")
