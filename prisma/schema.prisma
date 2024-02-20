@@ -11,7 +11,7 @@ datasource db {
 model User {
   id        String     @id @default(uuid())
   email     String     @unique
-  password  String     @unique
+  password  String     
   Category  Category[]
   Card      Card[]
   createdAt DateTime   @default(now())
