@@ -1,5 +1,10 @@
 import { constructDataResponse, constructMessageResponse } from "../helper/response.js"
-import { getCardsDb, getCardByIdDb, createCardDb, deleteCardDb } from "../domain/cards.js"
+import { getCardsDb,
+	getCardByIdDb,
+	createCardDb,
+	updateCardDb,
+	deleteCardDb
+} from "../domain/cards.js"
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
 
 export const getCards = async (req, res) => {
@@ -18,8 +23,8 @@ export const getCardById = async (req, res) => {
 	try {
 		const card = await getCardByIdDb(id)
 
-		const user = req.params.user
-		if (card.ownerId !== user.id) return constructMessageResponse(res, 403)
+		const userId = req.params.user
+		if (card.ownerId !== userId) return constructMessageResponse(res, 403)
 
 		return constructDataResponse(res, 200, { card })
 	} catch (error) {
@@ -35,6 +40,26 @@ export const createCard = async (req, res) => {
 	try {
 		const card = await createCardDb(prompt, answer, hint, categoryId, userId)
 		return constructDataResponse(res, 201, { card })
+	} catch (error) {
+		console.log(error)
+		return constructMessageResponse(res, 500)
+	}
+}
+
+export const updateCard = async (req, res) => {
+	const id = Number(req.params.id)
+	if (!id) return constructMessageResponse(res, 400)
+
+	try {
+		const existingCard = await getCardByIdDb(id)
+		if (!existingCard) return constructMessageResponse(res, 404)
+
+		const userId = req.params.user
+		if (existingCard.ownerId !== userId) return constructMessageResponse(res, 401)
+
+		const { prompt, answer, hint, level, categoryId } = req.body
+		const card = await updateCardDb(id, prompt, answer, hint, level, categoryId)
+		return constructDataResponse(res, 200, { card })
 	} catch (error) {
 		console.log(error)
 		return constructMessageResponse(res, 500)

@@ -34,6 +34,28 @@ export const createCardDb = async (prompt, answer, hint = "", categoryId, ownerI
 	})
 }
 
+export const updateCardDb = async (id, prompt, answer, hint, level, categoryId) => {
+
+	// const dataObj = [prompt, answer, hint, level, categoryId].forEach(item => {
+	// 	if (item) dataObj[item] = item
+	// })
+
+	// console.log(dataObj)
+	const card = await prisma.card.update({
+		where: {
+			id
+		},
+		data: {
+			prompt,
+			answer,
+			hint,
+			level,
+			categoryId
+		}
+	})
+	return card
+}
+
 export const deleteCardDb = async (id) => {
 	return await prisma.card.delete({
 		where: {
