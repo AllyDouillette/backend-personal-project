@@ -4,8 +4,11 @@ import  { createUserDb } from "../src/domain/user.js"
 const prisma = new PrismaClient()
 
 async function seed () {
-	const user = await createUserDb("Test@Something.com", "password123")
+	const user = await createUserDb("user@sevenbrains.com", "password123", "USER")
 	console.log(user)
+
+	const admin = await createUserDb("admin@sevenbrains.com", "admin", "ADMIN")
+	console.log(admin)
 
 	const newCategory = new Category("Test")
 	newCategory.setOwner(user.id)

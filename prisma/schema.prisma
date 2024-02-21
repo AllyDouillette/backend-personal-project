@@ -11,11 +11,17 @@ datasource db {
 model User {
   id        String     @id @default(uuid())
   email     String     @unique
-  password  String     
+  password  String
+  Role      Role
   Category  Category[]
   Card      Card[]
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
+}
+
+enum Role {
+  USER
+  ADMIN
 }
 
 model Category {

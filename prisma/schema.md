@@ -4,6 +4,7 @@ erDiagram
         string uuid
         string email
         string password
+        enum role
         createdAt datetime
         updatedAt datetime
     }
