@@ -89,6 +89,6 @@ export const deleteCategoryById = async (req, res) => {
 			console.log("prisma error", error)
 		}
 		console.log(error)
-		return constructMessageResponse(res, 500 )
+		return constructMessageResponse(res, 500)
 	}
 }
