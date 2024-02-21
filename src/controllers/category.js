@@ -1,5 +1,9 @@
 import { constructDataResponse, constructMessageResponse } from "../helper/response.js"
-import { getCategoriesDb, createCategoryDb, getCategoryByIdDb } from "../domain/category.js"
+import { getCategoriesDb,
+	createCategoryDb,
+	getCategoryByIdDb,
+	updateCategoryByIdDb
+} from "../domain/category.js"
 
 export const getCategories = async (_, res) => {
 	const categories = await getCategoriesDb()
@@ -24,11 +28,17 @@ export const createCategory = async (req, res) => {
 
 export const getCategoryById = async (req, res) => {
 	const id = Number(req.params.id)
+	const { user } = req.params
 
 	try {
 		const category = await getCategoryByIdDb(id)
 		if (!category) throw Error("no category found")
-		//TODO: add constraint that the user is either the owner or an admin
+
+		//TODO: add complexities that admins are always allowed to see any category
+		if (user !== category.ownerId) {
+			return constructMessageResponse(res, 403)
+		}
+
 		return constructDataResponse(res, 200, { category })
 	} catch (error) {
 		return constructMessageResponse(res, 404)
