@@ -9,6 +9,7 @@ import { getCardsDb,
 } from "../domain/cards.js"
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
 import { getCategoryDb } from "../domain/category.js"
+import { getUserDb } from "../domain/user.js"
 
 export const getCards = async (req, res) => {
 	try {
@@ -42,6 +43,20 @@ export const getOwnCards = async (req, res) => {
 
 	try {
 		const cards = await getCardsFromOwnerDb(userId)
+		return constructDataResponse(res, 200, { cards })
+	} catch (error) {
+		return constructMessageResponse(res, 500)
+	}
+}
+
+export const getCardsFromUser = async (req, res) => {
+	const ownerId = req.params.id
+
+	const owner = await getUserDb(ownerId)
+	if (!owner) return constructMessageResponse(res, 404, "user does not exist")
+
+	try {
+		const cards = await getCardsFromOwnerDb(ownerId)
 		return constructDataResponse(res, 200, { cards })
 	} catch (error) {
 		return constructMessageResponse(res, 500)
