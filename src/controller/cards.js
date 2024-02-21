@@ -1,5 +1,6 @@
 import { constructDataResponse, constructMessageResponse } from "../helper/response.js"
-import { getCardsDb, getCardByIdDb, createCardDb } from "../domain/cards.js"
+import { getCardsDb, getCardByIdDb, createCardDb, deleteCardDb } from "../domain/cards.js"
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
 
 export const getCards = async (req, res) => {
 	try {
@@ -38,6 +39,27 @@ export const createCard = async (req, res) => {
 		return constructDataResponse(res, 201, { card })
 	} catch (error) {
 		console.log(error)
+		return constructMessageResponse(res, 500)
+	}
+}
+
+export const deleteCard = async (req, res) => {
+	const id = Number(req.params.id)
+	if (!id) return constructMessageResponse(res, 400, "missing or invalid id")
+
+	const userId = req.params.user
+	try {
+		const card = await getCardByIdDb(id)
+		if (!card) return constructMessageResponse(res, 404)
+		if (card.ownerId !== userId) return constructMessageResponse(res, 403)
+
+		await deleteCardDb(id)
+		return constructMessageResponse(res, 200)
+	} catch (error) {
+		if (error instanceof PrismaClientKnownRequestError) {
+			console.log(error.code, "prisma error")
+		}
+		console.log(error.code, error)
 		return constructMessageResponse(res, 500)
 	}
 }

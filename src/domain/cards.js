@@ -33,3 +33,11 @@ export const createCardDb = async (prompt, answer, hint = "", categoryId, ownerI
 		}
 	})
 }
+
+export const deleteCardDb = async (id) => {
+	return await prisma.card.delete({
+		where: {
+			id
+		}
+	})
+}
