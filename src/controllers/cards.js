@@ -1,15 +1,35 @@
 import { constructDataResponse, constructMessageResponse } from "../helper/response.js"
 import { getCardsDb,
 	getCardDb,
+	getCardsFromCategoryDb,
 	createCardDb,
 	updateCardDb,
 	deleteCardDb
 } from "../domain/cards.js"
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
+import { getCategoryDb } from "../domain/category.js"
 
 export const getCards = async (req, res) => {
 	try {
 		const cards = await getCardsDb()
+		return constructDataResponse(res, 200, { cards })
+	} catch (error) {
+		return constructMessageResponse(res, 500)
+	}
+}
+
+export const getCardsFromCategory = async (req, res) => {
+	const categoryId = Number(req.params.id)
+	if (!categoryId) return constructMessageResponse(res, 400, "missing category id")
+
+	const category = await getCategoryDb(categoryId)
+	if (!category) return constructMessageResponse(res, 404)
+
+	const userId = req.params.user
+	if (userId !== category.ownerId) return constructMessageResponse(res, 403)
+
+	try {
+		const cards = await getCardsFromCategoryDb(categoryId)
 		return constructDataResponse(res, 200, { cards })
 	} catch (error) {
 		return constructMessageResponse(res, 500)

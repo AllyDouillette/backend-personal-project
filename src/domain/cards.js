@@ -13,6 +13,14 @@ export const getCardDb = async (id) => {
 	})
 }
 
+export const getCardsFromCategoryDb = async (categoryId) => {
+	return await prisma.card.findMany({
+		where: {
+			categoryId
+		}
+	})
+}
+
 export const createCardDb = async (prompt, answer, hint = "", categoryId, ownerId) => {
 	return await prisma.card.create({
 		data: {
