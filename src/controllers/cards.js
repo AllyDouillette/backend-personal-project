@@ -2,6 +2,7 @@ import { constructDataResponse, constructMessageResponse } from "../helper/respo
 import { getCardsDb,
 	getCardDb,
 	getCardsFromCategoryDb,
+	getCardsFromOwnerDb,
 	createCardDb,
 	updateCardDb,
 	deleteCardDb
@@ -30,6 +31,17 @@ export const getCardsFromCategory = async (req, res) => {
 
 	try {
 		const cards = await getCardsFromCategoryDb(categoryId)
+		return constructDataResponse(res, 200, { cards })
+	} catch (error) {
+		return constructMessageResponse(res, 500)
+	}
+}
+
+export const getOwnCards = async (req, res) => {
+	const userId = req.params.user
+
+	try {
+		const cards = await getCardsFromOwnerDb(userId)
 		return constructDataResponse(res, 200, { cards })
 	} catch (error) {
 		return constructMessageResponse(res, 500)

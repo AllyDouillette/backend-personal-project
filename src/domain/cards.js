@@ -21,6 +21,14 @@ export const getCardsFromCategoryDb = async (categoryId) => {
 	})
 }
 
+export const getCardsFromOwnerDb = async (ownerId) => {
+	return await prisma.card.findMany({
+		where: {
+			ownerId
+		}
+	})
+}
+
 export const createCardDb = async (prompt, answer, hint = "", categoryId, ownerId) => {
 	return await prisma.card.create({
 		data: {
