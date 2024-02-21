@@ -1,5 +1,7 @@
+import { generateUsername } from "unique-username-generator";
+
 export class User {
-	constructor (username, password) {
+	constructor (username = generateUsername("", 0,20), password = generateUsername("", 10,20)) {
 		this.username = username
 		this.password = password
 	}
@@ -16,7 +18,7 @@ export class Category {
 }
 
 export class Card {
-	constructor (prompt, answer, hint = "") {
+	constructor (prompt = generateUsername("", 0,10), answer = generateUsername("", 0, 10), hint = "") {
 		this.prompt = prompt
 		this.answer = answer
 		this.hint = hint
