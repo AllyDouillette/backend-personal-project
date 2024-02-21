@@ -4,11 +4,14 @@ erDiagram
         string uuid
         string email
         string password
-        enum role
+        enum Role
         createdAt datetime
         updatedAt datetime
     }
 
+    ROLE {
+        enum title
+    }
     CATEGORY {
         int id
         string name
@@ -27,6 +30,7 @@ erDiagram
         updatedAt datetime
     }
 
+    USER ||--|| ROLE: has
     USER ||--o{ CATEGORY : creates
     CATEGORY ||--|{ CARD : contains
     USER ||--|{ CARD : creates
