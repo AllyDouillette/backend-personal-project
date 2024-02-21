@@ -1,8 +1,9 @@
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
-import { createUserDb, getUserByIdDb, getUserByEmail } from "../domain/user.js"
+import { getUsersDb, getUserByIdDb, createUserDb, getUserByEmail } from "../domain/user.js"
 import { constructMessageResponse, constructDataResponse } from "../helper/response.js"
 import { comparePasswords } from "../helper/hashing.js"
 import { generateToken } from "../helper/authentication.js"
+import { scrubUserData } from "../helper/helper.js"
 
 export const registerUser = async (req, res) => {
 	const { email, password } = req.body
@@ -13,7 +14,8 @@ export const registerUser = async (req, res) => {
 
 	try {
 		const user = await createUserDb(email, password)
-		return constructDataResponse(res, 201, { user })
+		const cleanUser = scrubUserData(user)
+		return constructDataResponse(res, 201, { user: cleanUser })
 	} catch (error) {
 		if (error instanceof PrismaClientKnownRequestError) {
 			if (error.code === "P2002") {
@@ -62,5 +64,12 @@ export const getUserById = async (req, res) => {
 		return constructMessageResponse(res, 404)
 	}
 
-	return constructDataResponse(res, 200, { user })
+	const cleanUser = scrubUserData(user)
+	return constructDataResponse(res, 200, { user: cleanUser })
+}
+
+export const getUsers = async (_, res) => {
+	const users = await getUsersDb()
+	const cleanedUsers = users.map((user) => scrubUserData(user))
+	return constructDataResponse(res, 200, { users: cleanedUsers })
 }

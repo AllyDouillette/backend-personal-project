@@ -13,13 +13,16 @@ export const createUserDb = async (email, password, Role = "USER") => {
 	return user
 }
 
+export const getUsersDb = async () => {
+	return await prisma.user.findMany()
+}
+
 export const getUserByIdDb = async (id) => {
 	const user = await prisma.user.findUnique({
 		where: {
 			id
 		}
 	})
-	delete user.password
 	return user
 }
 
