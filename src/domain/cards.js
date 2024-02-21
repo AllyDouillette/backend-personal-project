@@ -5,7 +5,7 @@ export const getCardsDb = async () => {
 	return await prisma.card.findMany()
 }
 
-export const getCardByIdDb = async (id) => {
+export const getCardDb = async (id) => {
 	return await prisma.card.findUnique({
 		where: {
 			id

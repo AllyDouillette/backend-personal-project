@@ -1,6 +1,6 @@
 import { constructDataResponse, constructMessageResponse } from "../helper/response.js"
 import { getCardsDb,
-	getCardByIdDb,
+	getCardDb,
 	createCardDb,
 	updateCardDb,
 	deleteCardDb
@@ -16,12 +16,12 @@ export const getCards = async (req, res) => {
 	}
 }
 
-export const getCardById = async (req, res) => {
+export const getCard = async (req, res) => {
 	const id = Number(req.params.id)
 	if (!id) return constructMessageResponse(res, 400, "missing field in query")
 
 	try {
-		const card = await getCardByIdDb(id)
+		const card = await getCardDb(id)
 
 		const userId = req.params.user
 		if (card.ownerId !== userId) return constructMessageResponse(res, 403)
@@ -51,7 +51,7 @@ export const updateCard = async (req, res) => {
 	if (!id) return constructMessageResponse(res, 400)
 
 	try {
-		const existingCard = await getCardByIdDb(id)
+		const existingCard = await getCardDb(id)
 		if (!existingCard) return constructMessageResponse(res, 404)
 
 		const userId = req.params.user
@@ -72,7 +72,7 @@ export const deleteCard = async (req, res) => {
 
 	const userId = req.params.user
 	try {
-		const card = await getCardByIdDb(id)
+		const card = await getCardDb(id)
 		if (!card) return constructMessageResponse(res, 404)
 		if (card.ownerId !== userId) return constructMessageResponse(res, 403)
 
