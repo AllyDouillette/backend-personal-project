@@ -10,6 +10,7 @@ const extractAuthentication = (req) => {
 	const [type, token] = authentication.split(" ")
 
 	if (type !== "Bearer" || !!token === false ) return false
+
 	return token
 }
 
@@ -20,7 +21,10 @@ export const checkToken = async (req, res, next) => {
 		return constructMessageResponse(res, 400, "missing authorization in header")
 	}
 
-	if (verifyToken(token)) {
+	const decodedToken = verifyToken(token)
+	if (decodedToken) {
+		// append info to params
+		req.params.user = decodedToken.sub
 		return next()
 	}
 
