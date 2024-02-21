@@ -13,7 +13,6 @@ export const getCards = async (req, res) => {
 
 export const getCardById = async (req, res) => {
 	const id = Number(req.params.id)
-
 	if (!id) return constructMessageResponse(res, 400, "missing field in query")
 
 	try {
@@ -30,7 +29,6 @@ export const getCardById = async (req, res) => {
 
 export const createCard = async (req, res) => {
 	const { prompt, answer, hint, categoryId } = req.body
-
 	if (!prompt || !answer) return constructMessageResponse(res, 400, "missing fields in query")
 
 	const userId = req.params.user
