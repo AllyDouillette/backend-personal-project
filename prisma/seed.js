@@ -25,8 +25,7 @@ async function seed () {
 		console.log(error, "error creating during creation of characters")
 	}
 
-	const admin = await createUserDb("admin@sevenbrains.com", "admin", "ADMIN")
-	console.log(admin)
+	await createUserDb("admin@sevenbrains.com", "admin", "ADMIN")
 
 	let categories = users.map(user => {
 		const category = new Category(`Testing Category by ${user.username}`)
@@ -55,7 +54,6 @@ async function seed () {
 
 	try {
 		const createdCards = await prisma.card.createMany({	data: cards	})
-		console.log(createdCards)
 	} catch (error) {
 		console.log("error creating cards", error.code)
 	}
