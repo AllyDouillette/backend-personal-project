@@ -6,6 +6,6 @@ const router = Router()
 
 router.get("/", checkToken, checkAdminRole, getUsers)
 router.get("/me", checkToken, getSelf)
-router.get("/:id", checkToken, getUser)
+router.get("/:id", checkToken, checkAdminRole, getUser)
 
 export default router
