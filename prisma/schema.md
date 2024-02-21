@@ -2,7 +2,7 @@
 erDiagram
     USER {
         string uuid
-        string email
+        string username
         string password
         enum Role
         createdAt datetime
@@ -12,6 +12,16 @@ erDiagram
     ROLE {
         enum title
     }
+
+    PROFILE {
+        int id
+        string firstName
+        string lastName
+        string email
+        createdAt datetime
+        updatedAt datetime
+    }
+
     CATEGORY {
         int id
         string name
@@ -31,6 +41,7 @@ erDiagram
     }
 
     USER ||--|| ROLE: has
+    USER ||--|| PROFILE: has
     USER ||--o{ CATEGORY : creates
     CATEGORY ||--|{ CARD : contains
     USER ||--|{ CARD : creates

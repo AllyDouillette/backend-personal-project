@@ -10,13 +10,25 @@ datasource db {
 
 model User {
   id        String     @id @default(uuid())
-  email     String     @unique
+  username  String     @unique
   password  String
   Role      Role
   Category  Category[]
   Card      Card[]
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
+  Profile   Profile[]
+}
+
+model Profile {
+  id        Int      @id @default(autoincrement())
+  userId    String
+  User      User     @relation(fields: [userId], references: [id])
+  firstName String
+  lastName  String
+  email     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 enum Role {
@@ -45,6 +57,7 @@ model Card {
   hint        String?
   level       Int      @default(0)
   repetitions Int      @default(0)
+  lastAskedAt DateTime?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
