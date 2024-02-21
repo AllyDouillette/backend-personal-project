@@ -13,3 +13,23 @@ export const getCardByIdDb = async (id) => {
 		}
 	})
 }
+
+export const createCardDb = async (prompt, answer, hint = "", categoryId, ownerId) => {
+	return await prisma.card.create({
+		data: {
+			prompt,
+			answer,
+			hint,
+			Category: {
+				connect: {
+					id: categoryId
+				}
+			},
+			Owner: {
+				connect: {
+					id: ownerId
+				}
+			}
+		}
+	})
+}

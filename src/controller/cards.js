@@ -1,5 +1,5 @@
 import { constructDataResponse, constructMessageResponse } from "../helper/response.js"
-import { getCardsDb, getCardByIdDb } from "../domain/cards.js"
+import { getCardsDb, getCardByIdDb, createCardDb } from "../domain/cards.js"
 
 export const getCards = async (req, res) => {
 	try {
@@ -24,5 +24,20 @@ export const getCardById = async (req, res) => {
 		return constructDataResponse(res, 200, { card })
 	} catch (error) {
 		return constructMessageResponse(res, 404)
+	}
+}
+
+export const createCard = async (req, res) => {
+	const { prompt, answer, hint, categoryId } = req.body
+
+	if (!prompt || !answer) return constructMessageResponse(res, 400, "missing fields in query")
+
+	const userId = req.params.user
+	try {
+		const card = await createCardDb(prompt, answer, hint, categoryId, userId)
+		return constructDataResponse(res, 201, { card })
+	} catch (error) {
+		console.log(error)
+		return constructMessageResponse(res, 500)
 	}
 }
