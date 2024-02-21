@@ -1,9 +1,9 @@
 import { constructDataResponse, constructMessageResponse } from "../helper/response.js"
 import { getCategoriesDb,
 	createCategoryDb,
-	getCategoryByIdDb,
-	updateCategoryByIdDb,
-	deleteCategoryByIdDb
+	getCategoryDb,
+	updateCategoryDb,
+	deleteCategoryDb
 } from "../domain/category.js"
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
 
@@ -28,12 +28,12 @@ export const createCategory = async (req, res) => {
 	}
 }
 
-export const getCategoryById = async (req, res) => {
+export const getCategory = async (req, res) => {
 	const id = Number(req.params.id)
 	const { user } = req.params
 
 	try {
-		const category = await getCategoryByIdDb(id)
+		const category = await getCategoryDb(id)
 		if (!category) throw Error("no category found")
 
 		//TODO: add complexities that admins are always allowed to see any category
@@ -47,11 +47,11 @@ export const getCategoryById = async (req, res) => {
 	}
 }
 
-export const updateCategoryById = async (req, res) => {
+export const updateCategory = async (req, res) => {
 	const id = Number(req.params.id)
 
 	try {
-		const existingCategory = await getCategoryByIdDb(id)
+		const existingCategory = await getCategoryDb(id)
 		const { user } = req.params
 		if (user !== existingCategory.ownerId) {
 			return constructMessageResponse(res, 403)
@@ -60,7 +60,7 @@ export const updateCategoryById = async (req, res) => {
 		const { name } = req.body
 		if (!name) return constructMessageResponse(res, 400)
 
-		const category = await updateCategoryByIdDb(id, name)
+		const category = await updateCategoryDb(id, name)
 		return constructDataResponse(res, 200, { category })
 	} catch (error) {
 		if (error instanceof PrismaClientKnownRequestError) {
@@ -71,18 +71,18 @@ export const updateCategoryById = async (req, res) => {
 	}
 }
 
-export const deleteCategoryById = async (req, res) => {
+export const deleteCategory = async (req, res) => {
 	const id = Number(req.params.id)
 	if (!id) return constructMessageResponse(res, 400)
 
 	try {
-		const existingCategory = await getCategoryByIdDb(id)
+		const existingCategory = await getCategoryDb(id)
 		const { user } = req.params
 		if (user !== existingCategory.ownerId) {
 			return constructMessageResponse(res, 403)
 		}
 
-		await deleteCategoryByIdDb(id)
+		await deleteCategoryDb(id)
 		return constructDataResponse(res, 204)
 	} catch (error) {
 		if (error instanceof PrismaClientKnownRequestError) {

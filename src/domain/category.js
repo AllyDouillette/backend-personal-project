@@ -16,7 +16,7 @@ export const createCategoryDb = async (name, ownerId) => {
 	return category
 }
 
-export const getCategoryByIdDb = async (id) => {
+export const getCategoryDb = async (id) => {
 	const category = await prisma.category.findUnique({
 		where: {
 			id
@@ -25,7 +25,7 @@ export const getCategoryByIdDb = async (id) => {
 	return category
 }
 
-export const updateCategoryByIdDb = async (id, name) => {
+export const updateCategoryDb = async (id, name) => {
 	const category = await prisma.category.update({
 		where: {
 			id
@@ -37,7 +37,7 @@ export const updateCategoryByIdDb = async (id, name) => {
 	return category
 }
 
-export const deleteCategoryByIdDb = async (id) => {
+export const deleteCategoryDb = async (id) => {
 	const category = await prisma.category.delete({
 		where: {
 			id
