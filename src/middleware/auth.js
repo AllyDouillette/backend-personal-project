@@ -1,13 +1,19 @@
 import { constructMessageResponse } from "../helper/response.js"
 import { verifyToken } from "../helper/authentication.js"
 
-export const checkToken = async (req, res, next) => {
+const extractAuthentication = (req) => {
 	const authentication = req.header("authorization")
-	if (!authentication) {
-		return constructMessageResponse(res, 400, "missing authorization in header")
-	}
+	if (!authentication) return false
 
-	const [_, token] = authentication.split(" ")
+	const [type, token] = authentication.split(" ")
+	if (type !== "Bearer" || !!token === false ) return false
+
+	return token
+}
+
+export const checkToken = async (req, res, next) => {
+	const token = extractAuthentication(req)
+
 	if (!token) {
 		return constructMessageResponse(res, 400, "missing authorization in header")
 	}
