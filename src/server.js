@@ -21,7 +21,7 @@ app.use("/categories", categoryRouter)
 app.use("/cards", cardRouter)
 
 // catch-all
-app.get("*", (req, res) => {
+app.get("*", (_, res) => {
 	res.status(404).json({
 		status: "fail",
 		data: {
