@@ -68,6 +68,14 @@ export const getUser = async (req, res) => {
 	return constructDataResponse(res, 200, { user: cleanUser })
 }
 
+export const getSelf = async (req, res) => {
+	const userId = req.params.user
+	const user = await getUserDb(userId)
+	// const cleanUser = scrubUserData(user)
+	delete user.password
+	return constructDataResponse(res, 200, { user })
+}
+
 export const getUsers = async (_, res) => {
 	const users = await getUsersDb()
 	const cleanedUsers = users.map((user) => scrubUserData(user))
