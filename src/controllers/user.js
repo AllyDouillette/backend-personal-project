@@ -1,19 +1,19 @@
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
-import { getUsersDb, getUserDb, createUserDb, getUserByEmail } from "../domain/user.js"
+import { getUsersDb, getUserDb, createUserDb, getUserByusername } from "../domain/user.js"
 import { constructMessageResponse, constructDataResponse } from "../helper/response.js"
 import { comparePasswords } from "../helper/hashing.js"
 import { generateToken } from "../helper/authentication.js"
 import { scrubUserData } from "../helper/helper.js"
 
 export const registerUser = async (req, res) => {
-	const { email, password } = req.body
+	const { username, password } = req.body
 
-	if ( !email || !password ) {
+	if ( !username || !password ) {
 		return constructMessageResponse(res, 400)
 	}
 
 	try {
-		const user = await createUserDb(email, password)
+		const user = await createUserDb(username, password)
 		const cleanUser = scrubUserData(user)
 		return constructDataResponse(res, 201, { user: cleanUser })
 	} catch (error) {
@@ -28,14 +28,14 @@ export const registerUser = async (req, res) => {
 }
 
 export const loginUser = async (req, res) => {
-	const { email, password } = req.body
+	const { username, password } = req.body
 
-	if ( !email || !password ) {
+	if ( !username || !password ) {
 		return constructMessageResponse(res, 400)
 	}
 
 	try {
-		const user = await getUserByEmail(email)
+		const user = await getUserByUsername(username)
 
 		if (!user) {
 			constructMessageResponse(res, 401)
