@@ -53,7 +53,7 @@ async function seed () {
 	})
 
 	try {
-		const createdCards = await prisma.card.createMany({	data: cards	})
+		await prisma.card.createMany({	data: cards	})
 	} catch (error) {
 		console.log("error creating cards", error.code)
 	}
