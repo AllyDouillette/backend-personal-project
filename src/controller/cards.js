@@ -77,7 +77,7 @@ export const deleteCard = async (req, res) => {
 		if (card.ownerId !== userId) return constructMessageResponse(res, 403)
 
 		await deleteCardDb(id)
-		return constructMessageResponse(res, 200)
+		return constructMessageResponse(res, 204)
 	} catch (error) {
 		if (error instanceof PrismaClientKnownRequestError) {
 			console.log(error.code, "prisma error")
