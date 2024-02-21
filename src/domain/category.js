@@ -36,3 +36,12 @@ export const updateCategoryByIdDb = async (id, name) => {
 	})
 	return category
 }
+
+export const deleteCategoryByIdDb = async (id) => {
+	const category = await prisma.category.delete({
+		where: {
+			id
+		}
+	})
+	return category
+}

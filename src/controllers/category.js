@@ -2,7 +2,8 @@ import { constructDataResponse, constructMessageResponse } from "../helper/respo
 import { getCategoriesDb,
 	createCategoryDb,
 	getCategoryByIdDb,
-	updateCategoryByIdDb
+	updateCategoryByIdDb,
+	deleteCategoryByIdDb
 } from "../domain/category.js"
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
 
@@ -67,5 +68,27 @@ export const updateCategoryById = async (req, res) => {
 		}
 		console.log(error)
 		return constructMessageResponse(res, 401 )
+	}
+}
+
+export const deleteCategoryById = async (req, res) => {
+	const id = Number(req.params.id)
+	if (!id) return constructMessageResponse(res, 400)
+
+	try {
+		const existingCategory = await getCategoryByIdDb(id)
+		const { user } = req.params
+		if (user !== existingCategory.ownerId) {
+			return constructMessageResponse(res, 403)
+		}
+
+		await deleteCategoryByIdDb(id)
+		return constructDataResponse(res, 204)
+	} catch (error) {
+		if (error instanceof PrismaClientKnownRequestError) {
+			console.log("prisma error", error)
+		}
+		console.log(error)
+		return constructMessageResponse(res, 500 )
 	}
 }
