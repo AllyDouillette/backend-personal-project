@@ -5,8 +5,8 @@ erDiagram
         string username
         string password
         enum Role
-        createdAt datetime
-        updatedAt datetime
+        datetime createdAt
+        datetime updatedAt
     }
 
     ROLE {
@@ -18,15 +18,15 @@ erDiagram
         string firstName
         string lastName
         string email
-        createdAt datetime
-        updatedAt datetime
+        datetime createdAt
+        datetime updatedAt
     }
 
     CATEGORY {
         int id
         string name
-        createdAt datetime
-        updatedAt datetime
+        datetime createdAt
+        datetime updatedAt
     }
 
     CARD {
@@ -36,8 +36,9 @@ erDiagram
         string hint
         int level
         int repetitions
-        createdAt datetime
-        updatedAt datetime
+        datetime lastAskedAt
+        datetime createdAt
+        datetime updatedAt
     }
 
     USER ||--|| ROLE: has
