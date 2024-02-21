@@ -24,3 +24,15 @@ export const getCategoryByIdDb = async (id) => {
 	})
 	return category
 }
+
+export const updateCategoryByIdDb = async (id, name) => {
+	const category = await prisma.category.update({
+		where: {
+			id
+		},
+		data: {
+			name
+		}
+	})
+	return category
+}

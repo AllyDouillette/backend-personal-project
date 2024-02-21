@@ -4,6 +4,7 @@ import { getCategoriesDb,
 	getCategoryByIdDb,
 	updateCategoryByIdDb
 } from "../domain/category.js"
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
 
 export const getCategories = async (_, res) => {
 	const categories = await getCategoriesDb()
@@ -42,5 +43,29 @@ export const getCategoryById = async (req, res) => {
 		return constructDataResponse(res, 200, { category })
 	} catch (error) {
 		return constructMessageResponse(res, 404)
+	}
+}
+
+export const updateCategoryById = async (req, res) => {
+	const id = Number(req.params.id)
+
+	try {
+		const existingCategory = await getCategoryByIdDb(id)
+		const { user } = req.params
+		if (user !== existingCategory.ownerId) {
+			return constructMessageResponse(res, 403)
+		}
+
+		const { name } = req.body
+		if (!name) return constructMessageResponse(res, 400)
+
+		const category = await updateCategoryByIdDb(id, name)
+		return constructDataResponse(res, 200, { category })
+	} catch (error) {
+		if (error instanceof PrismaClientKnownRequestError) {
+			console.log("prisma error", error)
+		}
+		console.log(error)
+		return constructMessageResponse(res, 401 )
 	}
 }
