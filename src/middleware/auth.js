@@ -1,6 +1,6 @@
 import { constructMessageResponse } from "../helper/response.js"
 import { verifyToken } from "../helper/authentication.js"
-import { getUserByIdDb } from "../domain/user.js"
+import { getUserDb } from "../domain/user.js"
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
 
 const extractAuthentication = (req) => {
@@ -9,7 +9,7 @@ const extractAuthentication = (req) => {
 
 	const [type, token] = authentication.split(" ")
 	if (type !== "Bearer" || !!token === false ) return false
-	
+
 	return token
 }
 
@@ -42,7 +42,7 @@ export const checkAdminRole = async (req, res, next) => {
 		const { sub } = decodedToken
 
 		try {
-			const user = await getUserByIdDb(sub)
+			const user = await getUserDb(sub)
 
 			if (user.Role === "ADMIN") {
 				next()

@@ -1,5 +1,5 @@
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
-import { getUsersDb, getUserByIdDb, createUserDb, getUserByEmail } from "../domain/user.js"
+import { getUsersDb, getUserDb, createUserDb, getUserByEmail } from "../domain/user.js"
 import { constructMessageResponse, constructDataResponse } from "../helper/response.js"
 import { comparePasswords } from "../helper/hashing.js"
 import { generateToken } from "../helper/authentication.js"
@@ -56,9 +56,9 @@ export const loginUser = async (req, res) => {
 	}
 }
 
-export const getUserById = async (req, res) => {
+export const getUser = async (req, res) => {
 	const { id } = req.params
-	const user = await getUserByIdDb(id)
+	const user = await getUserDb(id)
 
 	if (!user) {
 		return constructMessageResponse(res, 404)

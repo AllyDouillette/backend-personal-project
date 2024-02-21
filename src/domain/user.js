@@ -17,7 +17,7 @@ export const getUsersDb = async () => {
 	return await prisma.user.findMany()
 }
 
-export const getUserByIdDb = async (id) => {
+export const getUserDb = async (id) => {
 	const user = await prisma.user.findUnique({
 		where: {
 			id
