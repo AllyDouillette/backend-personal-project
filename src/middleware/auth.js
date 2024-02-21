@@ -8,9 +8,8 @@ const extractAuthentication = (req) => {
 	if (!authentication) return false
 
 	const [type, token] = authentication.split(" ")
-
 	if (type !== "Bearer" || !!token === false ) return false
-
+	
 	return token
 }
 
@@ -59,5 +58,4 @@ export const checkAdminRole = async (req, res, next) => {
 			return  constructMessageResponse(res, 403)
 		}
 	}
-
 }
