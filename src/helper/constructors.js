@@ -1,4 +1,5 @@
-import { generateUsername } from "unique-username-generator";
+import { generateUsername } from "unique-username-generator"
+import { LoremIpsum } from "lorem-ipsum"
 
 export class User {
 	constructor (username = generateUsername("", 0,20), password = generateUsername("", 10,20)) {
@@ -17,8 +18,19 @@ export class Category {
 	}
 }
 
+const loremIpsum = new LoremIpsum({
+	sentencesPerParagraph: {
+		max: 8,
+		min: 4
+	},
+	wordsPerSentence: {
+		max: 16,
+		min: 4
+	}
+})
+
 export class Card {
-	constructor (prompt = generateUsername("", 0,10), answer = generateUsername("", 0, 10), hint = "") {
+	constructor (prompt = loremIpsum.generateSentences(3), answer = loremIpsum.generateSentences(3), hint = "") {
 		this.prompt = prompt
 		this.answer = answer
 		this.hint = hint

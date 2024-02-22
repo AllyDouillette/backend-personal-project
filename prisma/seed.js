@@ -3,6 +3,7 @@ import { Card, Category } from "../src/helper/constructors.js"
 import  { createUserDb } from "../src/domain/user.js"
 import { User } from "../src/helper/constructors.js"
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
+import { hashString } from "../src/helper/hashing.js"
 const prisma = new PrismaClient()
 
 async function seed () {
@@ -12,6 +13,7 @@ async function seed () {
 	for (let i = 0; i < 5; i++) {
 		const randomUser = new User()
 		randomUser.Role = "USER"
+		randomUser.password = await hashString(randomUser.password)
 		users.push(randomUser)
 	}
 
@@ -53,7 +55,7 @@ async function seed () {
 	})
 
 	try {
-		await prisma.card.createMany({	data: cards	})
+		await prisma.card.createMany({ data: cards })
 	} catch (error) {
 		console.log("error creating cards", error.code)
 	}
