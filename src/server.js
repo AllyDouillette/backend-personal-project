@@ -21,7 +21,9 @@ app.use("/categories", categoryRouter)
 app.use("/cards", cardRouter)
 
 app.get("/hello", (_, res) => {
-	res.status(200).json({ message: "Hello! I am your server!", data: { name: "Sir ServeALot" }})
+	res.status(200).json({
+		message: "Hello! I am your server!",
+		data: { name: "Sir ServeALot" }})
 })
 
 // catch-all
