@@ -1,5 +1,6 @@
 import { constructDataResponse, constructMessageResponse } from "../helper/response.js"
 import { getCategoriesDb,
+	getCategoriesFromOwnerDb,
 	createCategoryDb,
 	getCategoryDb,
 	updateCategoryDb,
@@ -10,6 +11,17 @@ import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js
 export const getCategories = async (_, res) => {
 	const categories = await getCategoriesDb()
 	return constructDataResponse(res, 200, { categories })
+}
+
+export const getOwnCategories = async (req, res) => {
+	const userId = req.params.user
+
+	try {
+		const categories = await getCategoriesFromOwnerDb(userId)
+		return constructDataResponse(res, 200, { categories })
+	} catch (error) {
+		return constructMessageResponse(res, 500)
+	}
 }
 
 export const createCategory = async (req, res) => {

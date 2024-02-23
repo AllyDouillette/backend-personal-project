@@ -6,6 +6,14 @@ export const getCategoriesDb = async () => {
 	return categories
 }
 
+export const getCategoriesFromOwnerDb = async (ownerId) => {
+	return await prisma.category.findMany({
+		where: {
+			ownerId
+		}
+	})
+}
+
 export const createCategoryDb = async (name, ownerId) => {
 	const category = await prisma.category.create({
 		data: {
