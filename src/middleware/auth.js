@@ -17,7 +17,7 @@ export const checkToken = async (req, res, next) => {
 	const token = extractAuthentication(req)
 
 	if (!token) {
-		return constructMessageResponse(res, 400, "missing authorization in header")
+		return constructMessageResponse(res, 400, "missing authorization in header" + req.header("Authorization"))
 	}
 
 	const decodedToken = verifyToken(token)

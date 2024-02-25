@@ -4,7 +4,12 @@ import  { createUserDb } from "../src/domain/user.js"
 import { User } from "../src/helper/constructors.js"
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
 import { hashString } from "../src/helper/hashing.js"
-import { processArray, testCardsGermanToFrench, testCardsFrenchToGerman } from "../src/data/actualcards.js"
+import { processArray,
+	generalVocabGermanToFrench,
+	generalVocabFrenchToGerman,
+	verbsGermanToFrench,
+	verbsFrenchToGerman
+} from "../src/data/actualcards.js"
 import { createCategoryDb } from "../src/domain/category.js"
 const prisma = new PrismaClient()
 
@@ -33,8 +38,10 @@ async function seed () {
 
 	await createUserDb("admin@sevenbrains.com", "admin", "ADMIN")
 
-	const momCategoryGermanToFrench = await createCategoryDb("Mamas Vokabeln – D zu F", mom.id)
-	const momCategoryFrenchToGerman = await createCategoryDb("Mamas Vokabeln – F zu D", mom.id)
+	const momCategory1 = await createCategoryDb("Vocabulaire générale – D zu F", mom.id)
+	const momCategory2 = await createCategoryDb("Vocabulaire générale – F zu D", mom.id)
+	const momCategory3 = await createCategoryDb("Verbes – D zu F", mom.id)
+	const momCategory4 = await createCategoryDb("Verbes – F zu D", mom.id)
 
 	let categories = users.map(user => {
 		const category = new Category(`Testing Category by ${user.username}`)
@@ -51,20 +58,38 @@ async function seed () {
 		console.log("error creating categories", error.code)
 	}
 
-	const momsCardsGermanToFrench = processArray(testCardsGermanToFrench)
-	momsCardsGermanToFrench.forEach(card => {
-		card.setCategory(momCategoryGermanToFrench.id)
+	const momCards1 = processArray(generalVocabGermanToFrench)
+	momCards1.forEach(card => {
+		card.setCategory(momCategory1.id)
 		card.setOwner(mom.id)
 	})
 
-	const momsCardsFrenchToGerman = processArray(testCardsFrenchToGerman)
-	momsCardsFrenchToGerman.forEach(card => {
-		card.setCategory(momCategoryFrenchToGerman.id)
+	const momCards2 = processArray(generalVocabFrenchToGerman)
+	momCards2.forEach(card => {
+		card.setCategory(momCategory2.id)
 		card.setOwner(mom.id)
 	})
 
-	await prisma.card.createMany({ data: momsCardsGermanToFrench })
-	await prisma.card.createMany({ data: momsCardsFrenchToGerman })
+	const momCards3 = processArray(verbsGermanToFrench)
+	momCards3.forEach(card => {
+		card.setCategory(momCategory3.id)
+		card.setOwner(mom.id)
+	})
+
+	const momCards4 = processArray(verbsFrenchToGerman)
+	momCards4.forEach(card => {
+		card.setCategory(momCategory4.id)
+		card.setOwner(mom.id)
+	})
+
+	const cards1 = await prisma.card.createMany({ data: momCards1 })
+	console.log(cards1)
+	const cards2 = await prisma.card.createMany({ data: momCards2 })
+	console.log(cards2)
+	const cards3 = await prisma.card.createMany({ data: momCards3 })
+	console.log(cards3)
+	const cards4 = await prisma.card.createMany({ data: momCards4 })
+	console.log(cards4)
 
 	let cards = []
 	categories.forEach(category => {
