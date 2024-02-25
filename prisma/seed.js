@@ -10,7 +10,8 @@ import { processArray,
 	verbsGermanToFrench,
 	verbsFrenchToGerman,
 	adjectivesGermanToFrench,
-	adjectivesFrenchToGerman
+	adjectivesFrenchToGerman,
+	adverbsFrenchToGerman
 } from "../src/data/actualcards.js"
 import { createCategoryDb } from "../src/domain/category.js"
 const prisma = new PrismaClient()
@@ -46,6 +47,7 @@ async function seed () {
 	const momCategory4 = await createCategoryDb("Verbes – F zu D", mom.id)
 	const momCategory5 = await createCategoryDb("Adjectives – D zu F", mom.id)
 	const momCategory6 = await createCategoryDb("Verbes – F zu D", mom.id)
+	const momCategory7 = await createCategoryDb("Adverbes – F zu D", mom.id)
 
 	let categories = users.map(user => {
 		const category = new Category(`Testing Category by ${user.username}`)
@@ -98,6 +100,12 @@ async function seed () {
 		card.setOwner(mom.id)
 	})
 
+	const momCards7 = processArray(adverbsFrenchToGerman)
+	momCards7.forEach(card => {
+		card.setCategory(momCategory7.id)
+		card.setOwner(mom.id)
+	})
+
 	const cards1 = await prisma.card.createMany({ data: momCards1 })
 	console.log(cards1)
 	const cards2 = await prisma.card.createMany({ data: momCards2 })
@@ -110,6 +118,8 @@ async function seed () {
 	console.log(cards5)
 	const cards6 = await prisma.card.createMany({ data: momCards6 })
 	console.log(cards6)
+	const cards7 = await prisma.card.createMany({ data: momCards7 })
+	console.log(cards7)
 
 	let cards = []
 	categories.forEach(category => {
