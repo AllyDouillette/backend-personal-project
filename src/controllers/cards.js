@@ -104,8 +104,8 @@ export const updateCard = async (req, res) => {
 		const userId = req.params.user
 		if (existingCard.ownerId !== userId) return constructMessageResponse(res, 401)
 
-		const { prompt, answer, hint, level, categoryId } = req.body
-		const card = await updateCardDb(id, prompt, answer, hint, level, categoryId)
+		const { prompt, answer, hint, level, repetitions, categoryId, lastAskedAt } = req.body
+		const card = await updateCardDb(id, prompt, answer, hint, level, repetitions, categoryId, lastAskedAt)
 		return constructDataResponse(res, 200, { card })
 	} catch (error) {
 		console.log(error)

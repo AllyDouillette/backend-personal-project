@@ -49,7 +49,7 @@ export const createCardDb = async (prompt, answer, hint = "", categoryId, ownerI
 	})
 }
 
-export const updateCardDb = async (id, prompt, answer, hint, level, categoryId) => {
+export const updateCardDb = async (id, prompt, answer, hint, level, repetitions, categoryId, lastAskedAt) => {
 	return await prisma.card.update({
 		where: {
 			id
@@ -59,7 +59,9 @@ export const updateCardDb = async (id, prompt, answer, hint, level, categoryId) 
 			answer,
 			hint,
 			level,
-			categoryId
+			repetitions,
+			categoryId,
+			lastAskedAt
 		}
 	})
 }
