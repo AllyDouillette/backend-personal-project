@@ -16,9 +16,18 @@ export const getCategories = async (req, res) => {
 
 export const getOwnCategories = async (req, res) => {
 	const userId = req.params.user
-	const withCardDetails = req.body.withCards === true
 	try {
-		const categories = await getCategoriesFromOwnerDb(userId, withCardDetails)
+		const categories = await getCategoriesFromOwnerDb(userId, false)
+		return constructDataResponse(res, 200, { categories })
+	} catch (error) {
+		return constructMessageResponse(res, 500)
+	}
+}
+
+export const getOwnCategoriesWithCards = async (req, res) => {
+	const userId = req.params.user
+	try {
+		const categories = await getCategoriesFromOwnerDb(userId, true)
 		return constructDataResponse(res, 200, { categories })
 	} catch (error) {
 		return constructMessageResponse(res, 500)
