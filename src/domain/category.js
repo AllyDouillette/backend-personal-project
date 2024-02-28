@@ -6,12 +6,23 @@ export const getCategoriesDb = async () => {
 	return categories
 }
 
-export const getCategoriesFromOwnerDb = async (ownerId) => {
-	return await prisma.category.findMany({
-		where: {
-			ownerId
-		}
-	})
+export const getCategoriesFromOwnerDb = async (ownerId, includeCardDetails) => {
+	if (includeCardDetails) {
+		return await prisma.category.findMany({
+			where: {
+				ownerId
+			},
+			include: {
+				Card: true
+			}
+		})
+	} else {
+		return await prisma.category.findMany({
+			where: {
+				ownerId
+			}
+		})
+	}
 }
 
 export const createCategoryDb = async (name, ownerId) => {

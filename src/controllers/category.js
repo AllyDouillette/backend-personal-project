@@ -15,9 +15,9 @@ export const getCategories = async (_, res) => {
 
 export const getOwnCategories = async (req, res) => {
 	const userId = req.params.user
-
+	const withCardDetails = req.body.withCards === true
 	try {
-		const categories = await getCategoriesFromOwnerDb(userId)
+		const categories = await getCategoriesFromOwnerDb(userId, withCardDetails)
 		return constructDataResponse(res, 200, { categories })
 	} catch (error) {
 		return constructMessageResponse(res, 500)
