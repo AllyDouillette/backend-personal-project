@@ -4,7 +4,7 @@ const prisma = new PrismaClient()
 export const getCategoriesDb = async (includeCardDetails) => {
 	return await prisma.category.findMany({
 		include: {
-			Card: includeCardDetails
+			Cards: includeCardDetails
 		}
 	})
 }
@@ -15,7 +15,7 @@ export const getCategoriesFromOwnerDb = async (ownerId, includeCardDetails) => {
 			ownerId
 		},
 		include: {
-			Card: includeCardDetails
+			Cards: includeCardDetails
 		}
 	})
 }
