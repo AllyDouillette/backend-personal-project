@@ -14,7 +14,7 @@ model User {
   password  String
   Role      Role
   Category  Category[]
-  Card      Card[]
+  Cards     Card[]
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
   Profile   Profile[]
@@ -41,7 +41,7 @@ model Category {
   name      String
   ownerId   String
   Owner     User     @relation(fields: [ownerId], references: [id])
-  Card      Card[]
+  Cards     Card[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
