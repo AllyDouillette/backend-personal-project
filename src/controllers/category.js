@@ -8,8 +8,9 @@ import { getCategoriesDb,
 } from "../domain/category.js"
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
 
-export const getCategories = async (_, res) => {
-	const categories = await getCategoriesDb()
+export const getCategories = async (req, res) => {
+	const withCardDetails = req.body.withCards === true
+	const categories = await getCategoriesDb(withCardDetails)
 	return constructDataResponse(res, 200, { categories })
 }
 
