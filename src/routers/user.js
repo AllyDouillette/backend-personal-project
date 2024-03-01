@@ -1,7 +1,7 @@
 import { Router } from "express"
 import { getUsers, getUser, getSelf } from "../controllers/user.js"
 import { getOwnCategories, getOwnCategoriesWithCards } from "../controllers/category.js"
-import { getOwnCards, getCardsFromUser } from "../controllers/cards.js"
+import { getOwnCards, getCardsFromUser } from "../controllers/card.js"
 import { checkToken, checkAdminRole } from "../middleware/auth.js"
 
 const router = Router()

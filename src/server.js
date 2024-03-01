@@ -6,6 +6,7 @@ import authRouter from "./routers/auth.js"
 import userRouter from "./routers/user.js"
 import categoryRouter from "./routers/category.js"
 import cardRouter from "./routers/card.js"
+import statisticRouter from "./routers/statistic.js"
 
 const app = express()
 app.disable("x-powered-by")
@@ -19,6 +20,7 @@ app.use("/", authRouter)
 app.use("/users", userRouter)
 app.use("/categories", categoryRouter)
 app.use("/cards", cardRouter)
+app.use("/statistics", statisticRouter)
 
 app.get("/hello", (_, res) => {
 	res.status(200).json({

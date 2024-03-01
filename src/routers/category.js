@@ -6,7 +6,7 @@ import { getCategories,
 	updateCategory,
 	deleteCategory
 } from "../controllers/category.js"
-import { getCardsFromCategory } from "../controllers/cards.js"
+import { getCardsFromCategory } from "../controllers/card.js"
 
 const router = Router()
 

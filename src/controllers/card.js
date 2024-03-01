@@ -6,7 +6,7 @@ import { getCardsDb,
 	createCardDb,
 	updateCardDb,
 	deleteCardDb
-} from "../domain/cards.js"
+} from "../domain/card.js"
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
 import { getCategoryDb } from "../domain/category.js"
 import { getUserDb } from "../domain/user.js"

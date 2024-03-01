@@ -1,6 +1,6 @@
 import { Router } from "express"
 import { checkToken, checkAdminRole } from "../middleware/auth.js"
-import { getCards, getCard, createCard, updateCard, deleteCard } from "../controllers/cards.js"
+import { getCards, getCard, createCard, updateCard, deleteCard } from "../controllers/card.js"
 
 const router = Router()
 
