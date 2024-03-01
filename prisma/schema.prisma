@@ -36,7 +36,7 @@ model Statistic {
   id        Int      @id @default(autoincrement())
   userId    String
   User      User     @relation(fields: [userId], references: [id])
-  Date      DateTime
+  date      DateTime
   correct   Int
   incorrect Int
   createdAt DateTime @default(now())

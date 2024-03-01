@@ -2,7 +2,7 @@
 CREATE TABLE "Statistic" (
     "id" SERIAL NOT NULL,
     "userId" TEXT NOT NULL,
-    "Date" TIMESTAMP(3) NOT NULL,
+    "date" TIMESTAMP(3) NOT NULL,
     "correct" INTEGER NOT NULL,
     "incorrect" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
