@@ -22,6 +22,15 @@ erDiagram
         datetime updatedAt
     }
 
+    STATISTICS {
+        int id
+        datetime Date
+        int correct
+        int incorrect
+        datetime createdAt
+        datetime updatedAt
+    }
+
     CATEGORY {
         int id
         string name
@@ -42,6 +51,7 @@ erDiagram
     }
 
     USER ||--|| ROLE: has
+    USER ||--o{ STATISTICS: has
     USER ||--|| PROFILE: has
     USER ||--o{ CATEGORY : creates
     CATEGORY ||--|{ CARD : contains

@@ -9,15 +9,16 @@ datasource db {
 }
 
 model User {
-  id        String     @id @default(uuid())
-  username  String     @unique
-  password  String
-  Role      Role
-  Category  Category[]
-  Cards     Card[]
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
-  Profile   Profile[]
+  id         String      @id @default(uuid())
+  username   String      @unique
+  password   String
+  Role       Role
+  Category   Category[]
+  Cards      Card[]
+  Statistics Statistic[]
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  Profile    Profile[]
 }
 
 model Profile {
@@ -27,6 +28,17 @@ model Profile {
   firstName String
   lastName  String
   email     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Statistic {
+  id        Int      @id @default(autoincrement())
+  userId    String
+  User      User     @relation(fields: [userId], references: [id])
+  Date      DateTime
+  correct   Int
+  incorrect Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -47,17 +59,17 @@ model Category {
 }
 
 model Card {
-  id          Int      @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   ownerId     String
-  Owner       User     @relation(fields: [ownerId], references: [id])
+  Owner       User      @relation(fields: [ownerId], references: [id])
   categoryId  Int
-  Category    Category @relation(fields: [categoryId], references: [id])
+  Category    Category  @relation(fields: [categoryId], references: [id])
   prompt      String
   answer      String
   hint        String?
-  level       Int      @default(0)
-  repetitions Int      @default(0)
+  level       Int       @default(0)
+  repetitions Int       @default(0)
   lastAskedAt DateTime?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
