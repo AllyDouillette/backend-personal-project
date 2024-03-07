@@ -5,11 +5,13 @@ import { getCardsDb,
 	getCardsFromOwnerDb,
 	createCardDb,
 	updateCardDb,
+	updateCardStatsDb,
 	deleteCardDb
 } from "../domain/card.js"
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
 import { getCategoryDb } from "../domain/category.js"
 import { getUserDb } from "../domain/user.js"
+import { maxLevel } from "../helper/helper.js"
 
 export const getCards = async (req, res) => {
 	try {
@@ -109,6 +111,37 @@ export const updateCard = async (req, res) => {
 		return constructDataResponse(res, 200, { card })
 	} catch (error) {
 		console.log(error)
+		return constructMessageResponse(res, 500)
+	}
+}
+
+export const updateCardStats = async (req, res) => {
+	const id = Number(req.params.id)
+	if (!id) return constructMessageResponse(res, 400)
+
+	if (req.query.changeBy === undefined) return constructMessageResponse(res, 400, "missing query param of changeBy")
+
+	const changeBy = Number(req.query.changeBy)
+	if (isNaN(changeBy)) return constructMessageResponse(res, 400, "query param of changeBy is not a number")
+	if (changeBy === 0) return constructMessageResponse(res, 400, "query param of changeBy is zero")
+
+	try {
+		const existingCard = await getCardDb(id)
+		if (!existingCard) return constructMessageResponse(res, 404)
+
+		const userId = req.params.user
+		if (existingCard.ownerId !== userId) return constructMessageResponse(res, 401)
+
+		const { level, repetitions } = existingCard
+		// a level is only increased if it's a positive change
+		const newLevel = level + Math.max(0, changeBy)
+		// but never above the maxLevel
+		const cappedLevel = Math.min(newLevel, maxLevel)
+		// repetitions are ALL times a card was shown.
+		const newRepetitions = repetitions + Math.abs(changeBy)
+		const card = await updateCardStatsDb(id, cappedLevel, newRepetitions, new Date().toISOString())
+		return constructDataResponse(res, 200, { card })
+	} catch (error) {
 		return constructMessageResponse(res, 500)
 	}
 }

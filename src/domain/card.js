@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client"
+import { maxLevel } from "../helper/helper.js"
 const prisma = new PrismaClient()
 
 export const getCardsDb = async () => {
@@ -61,6 +62,19 @@ export const updateCardDb = async (id, prompt, answer, hint, level, repetitions,
 			level,
 			repetitions,
 			categoryId,
+			lastAskedAt
+		}
+	})
+}
+
+export const updateCardStatsDb = async (id, level, repetitions, lastAskedAt = new Date().toISOString()) => {
+	return await prisma.card.update({
+		where: {
+			id
+		},
+		data: {
+			level,
+			repetitions,
 			lastAskedAt
 		}
 	})
