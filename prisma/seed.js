@@ -28,7 +28,7 @@ async function seed () {
 	let users = []
 	for (let i = 0; i < 5; i++) {
 		const randomUser = new User()
-		randomUser.Role = "USER"
+		randomUser.role = "USER"
 		randomUser.password = await hashString(randomUser.password)
 		users.push(randomUser)
 	}

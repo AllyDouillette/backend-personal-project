@@ -139,7 +139,9 @@ export const updateCardStats = async (req, res) => {
 		const cappedLevel = Math.min(newLevel, maxLevel)
 		// repetitions are ALL times a card was shown.
 		const newRepetitions = repetitions + Math.abs(changeBy)
-		const card = await updateCardStatsDb(id, cappedLevel, newRepetitions, new Date().toISOString())
+		// lastAsked is only updated if the changeBy is positive
+		const newLastAsked = changeBy > 0 ? new Date().toISOString() : existingCard.lastAskedAt
+		const card = await updateCardStatsDb(id, cappedLevel, newRepetitions, newLastAsked)
 		return constructDataResponse(res, 200, { card })
 	} catch (error) {
 		return constructMessageResponse(res, 500)

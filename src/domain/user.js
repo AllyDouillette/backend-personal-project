@@ -3,11 +3,11 @@ import { hashString } from "../helper/hashing.js"
 
 const prisma = new PrismaClient()
 
-export const createUserDb = async (username, password, Role = "USER") => {
+export const createUserDb = async (username, password, role = "USER") => {
 	const user = await prisma.user.create({ data: {
 		username,
 		password: await hashString(password),
-		Role
+		role
 	}
 	})
 	return user
