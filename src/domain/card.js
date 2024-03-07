@@ -36,12 +36,12 @@ export const createCardDb = async (prompt, answer, hint = "", categoryId, ownerI
 			prompt,
 			answer,
 			hint,
-			Category: {
+			category: {
 				connect: {
 					id: categoryId
 				}
 			},
-			Owner: {
+			owner: {
 				connect: {
 					id: ownerId
 				}
