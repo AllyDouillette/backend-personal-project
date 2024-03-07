@@ -38,7 +38,8 @@ export const updateOwnStatisticEntry = async (req, res) => {
 		return constructMessageResponse(res, 401)
 	}
 
-	const { correct, incorrect } = req.query
+	const correct = req.query.correct === undefined ? 0 : Number(req.query.correct)
+	const incorrect = req.query.incorrect === undefined ? 0 : Number(req.query.incorrect)
 	const statistic = await updateStatisticDb(id, existingStatistic.correct + correct, existingStatistic.incorrect + incorrect)
 	return constructDataResponse(res, 200, { statistic })
 }

@@ -10,7 +10,7 @@ export const getStatisticDb = async (id) => {
 }
 
 export const updateStatisticDb = async (id, correct, incorrect) => {
-	return await prisma.statistic.findUnique({
+	return await prisma.statistic.update({
 		where: {
 			id
 		},
