@@ -5,7 +5,7 @@ import { getOwnCards, getCardsFromUser } from "../controllers/card.js"
 import { getOwnStatistics,
 	updateOwnStatisticEntry,
 	getOwnStatisticsForDate,
-  createOwnStatisticsForDate,
+	createOwnStatisticsForDate,
 	getOwnStatisticsForDateRange
 } from "../controllers/statistic.js"
 import { checkToken, checkAdminRole } from "../middleware/auth.js"
