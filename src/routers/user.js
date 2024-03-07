@@ -17,6 +17,10 @@ router.get("/:id", checkToken, checkAdminRole, getUser)
 router.get("/me/cards", checkToken, getOwnCards)
 router.get("/me/categories", checkToken, getOwnCategories)
 router.get("/me/categories/details", checkToken, getOwnCategoriesWithCards)
+router.get("/me/statistics", checkToken, getOwnStatistics)
+router.patch("/me/statistics/:id", checkToken, updateOwnStatisticEntry)
+router.get("/me/statistics/:date", checkToken, getOwnStatisticsForDate)
+router.get("/me/statistics/:startDate/:endDate", checkToken, getOwnStatisticsForDateRange)
 router.get("/:id/cards", checkToken, checkAdminRole, getCardsFromUser)
 
 export default router
