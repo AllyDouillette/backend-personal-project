@@ -73,7 +73,7 @@ export const getStatisticsForUserInDateRangeDb = async (userId, startDate, endDa
 	})
 }
 
-export const addStatisticsDb = async (userId, date) => {
+export const createStatisticDb = async (userId, date) => {
 	try {
 		const response = await prisma.statistic.create({
 			data: {

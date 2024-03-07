@@ -1,5 +1,6 @@
 import {
 	getStatisticDb,
+	createStatisticDb,
 	getStatisticsDb,
 	getStatisticsForDateDb,
 	getStatisticsForDateRangeDb,
@@ -25,6 +26,14 @@ export const getStatisticsForDay = async (req, res) => {
 	const { date } = req.params
 	const ISOdate = new Date(`${date}T00:00:00.000Z`)
 	const statistics = await getStatisticsForDateDb(ISOdate)
+	return constructDataResponse(res, 200, { statistics })
+}
+
+export const createOwnStatisticsForDate = async (req, res) => {
+	const id = Number(req.params.id)
+	const { date } = req.params
+	const ISOdate = new Date(`${date}T00:00:00.000Z`)
+	const statistics = await createStatisticDb(id, ISOdate)
 	return constructDataResponse(res, 200, { statistics })
 }
 
