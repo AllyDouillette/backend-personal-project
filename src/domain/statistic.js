@@ -34,14 +34,14 @@ export const getStatisticsForUserDb = async (userId) => {
 }
 
 export const getStatisticsForDateDb = async (date) => {
-	return await prisma.statistic.findFirst({
+	return await prisma.statistic.findMany({
 		where: {
 			date
 		}
 	})
 }
 
-export const getStatisticsForUserAndDateDb = async (userId, date) => {
+export const getStatisticForUserAndDateDb = async (userId, date) => {
 	return await prisma.statistic.findFirst({
 		where: {
 			userId,

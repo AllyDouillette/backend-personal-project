@@ -1,20 +1,20 @@
 import {
 	getStatisticDb,
-	createStatisticDb,
+	updateStatisticDb,
 	getStatisticsDb,
-	getStatisticsForDateDb,
-	getStatisticsForDateRangeDb,
 	getStatisticsForUserDb,
-	getStatisticsForUserAndDateDb,
+	getStatisticsForDateDb,
+	getStatisticForUserAndDateDb,
+	getStatisticsForDateRangeDb,
 	getStatisticsForUserInDateRangeDb,
-	updateStatisticDb
+	createStatisticDb
 } from "../domain/statistic.js"
 import { constructDataResponse, constructMessageResponse } from "../helper/response.js"
 
 export const getStatistic = async (req, res) => {
 	const id = Number(req.params.id)
-	const statistics = await getStatisticDb(id)
-	return constructDataResponse(res, 200, { statistics })
+	const statistic = await getStatisticDb(id)
+	return constructDataResponse(res, 200, { statistic })
 }
 
 export const getStatistics = async (_, res) => {
@@ -29,12 +29,12 @@ export const getStatisticsForDay = async (req, res) => {
 	return constructDataResponse(res, 200, { statistics })
 }
 
-export const createOwnStatisticsForDate = async (req, res) => {
+export const createOwnStatisticForDate = async (req, res) => {
 	const id = Number(req.params.id)
 	const { date } = req.params
 	const ISOdate = new Date(`${date}T00:00:00.000Z`)
-	const statistics = await createStatisticDb(id, ISOdate)
-	return constructDataResponse(res, 200, { statistics })
+	const statistic = await createStatisticDb(id, ISOdate)
+	return constructDataResponse(res, 200, { statistic })
 }
 
 export const updateOwnStatisticEntry = async (req, res) => {
@@ -68,12 +68,12 @@ export const getOwnStatistics = async (req, res) => {
 	return constructDataResponse(res, 200, { statistics })
 }
 
-export const getOwnStatisticsForDate = async (req, res) => {
+export const getOwnStatisticForDate = async (req, res) => {
 	const { date } = req.params
 	const userId = req.params.user
 	const ISOdate = new Date(`${date}T00:00:00.000Z`)
-	const statistics = await getStatisticsForUserAndDateDb(userId, ISOdate)
-	return constructDataResponse(res, 200, { statistics })
+	const statistic = await getStatisticForUserAndDateDb(userId, ISOdate)
+	return constructDataResponse(res, 200, { statistic })
 }
 
 export const getOwnStatisticsForDateRange = async (req, res) => {

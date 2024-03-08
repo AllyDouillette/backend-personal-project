@@ -4,8 +4,8 @@ import { getOwnCategories, getOwnCategoriesWithCards } from "../controllers/cate
 import { getOwnCards, getCardsFromUser } from "../controllers/card.js"
 import { getOwnStatistics,
 	updateOwnStatisticEntry,
-	getOwnStatisticsForDate,
-	createOwnStatisticsForDate,
+	getOwnStatisticForDate,
+	createOwnStatisticForDate,
 	getOwnStatisticsForDateRange
 } from "../controllers/statistic.js"
 import { checkToken, checkAdminRole } from "../middleware/auth.js"
@@ -20,8 +20,8 @@ router.get("/me/categories", checkToken, getOwnCategories)
 router.get("/me/categories/details", checkToken, getOwnCategoriesWithCards)
 router.get("/me/statistics", checkToken, getOwnStatistics)
 router.patch("/me/statistics/:id", checkToken, updateOwnStatisticEntry)
-router.get("/me/statistics/:date", checkToken, getOwnStatisticsForDate)
-router.post("/me/statistics/:date", checkToken, createOwnStatisticsForDate)
+router.get("/me/statistics/:date", checkToken, getOwnStatisticForDate)
+router.post("/me/statistics/:date", checkToken, createOwnStatisticForDate)
 router.get("/me/statistics/:startDate/:endDate", checkToken, getOwnStatisticsForDateRange)
 router.get("/:id/cards", checkToken, checkAdminRole, getCardsFromUser)
 
