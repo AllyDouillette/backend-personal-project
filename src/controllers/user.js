@@ -14,8 +14,8 @@ export const registerUser = async (req, res) => {
 
 	try {
 		const user = await createUserDb(username, password)
-		const cleanUser = scrubUserData(user)
 		const token = generateToken({ sub: user.id })
+		const cleanUser = scrubUserData(user)
 		return constructDataResponse(res, 201, { user: cleanUser, token })
 	} catch (error) {
 		if (error instanceof PrismaClientKnownRequestError) {
@@ -41,7 +41,7 @@ export const loginUser = async (req, res) => {
 		if (!user) {
 			return constructMessageResponse(res, 401)
 		}
-		
+
 		if (await comparePasswords(password, user.password) === false) {
 			return constructMessageResponse(res, 401, "invalid login credentials")
 		}

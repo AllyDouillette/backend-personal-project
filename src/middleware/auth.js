@@ -24,6 +24,7 @@ export const checkToken = async (req, res, next) => {
 	if (decodedToken) {
 		// append info to params
 		req.params.user = decodedToken.sub
+		console.log("here's the user id that I append", decodedToken.sub)
 		return next()
 	}
 
