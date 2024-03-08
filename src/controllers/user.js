@@ -15,7 +15,8 @@ export const registerUser = async (req, res) => {
 	try {
 		const user = await createUserDb(username, password)
 		const cleanUser = scrubUserData(user)
-		return constructDataResponse(res, 201, { user: cleanUser })
+		const token = generateToken({ sub: user.id })
+		return constructDataResponse(res, 201, { user: cleanUser, token })
 	} catch (error) {
 		if (error instanceof PrismaClientKnownRequestError) {
 			if (error.code === "P2002") {
