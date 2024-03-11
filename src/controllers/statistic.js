@@ -45,10 +45,10 @@ export const getStatisticsForDay = async (req, res) => {
 }
 
 export const createOwnStatisticForDate = async (req, res) => {
-	const id = Number(req.params.id)
+	const userId = req.params.user
 	const { date } = req.params
 	const ISOdate = new Date(`${date}T00:00:00.000Z`)
-	const statistic = await createStatisticDb(id, ISOdate)
+	const statistic = await createStatisticDb(userId, ISOdate)
 	return constructDataResponse(res, 200, { statistic })
 }
 
@@ -69,12 +69,15 @@ export const updateOwnStatistic = async (req, res) => {
 }
 
 export const updateOwnStatisticForToday = async (req, res) => {
-	return constructDataResponse(res, 200, { ok: "k"})
-	const existingStatistic = await getOwnStatisticForToday(req, res)
+	const userId = req.params.user
+	const ISOdate = new Date().toISOString()
+	const existingStatistic = await getStatisticForUserAndDateDb(userId, ISOdate)
+
 	if (existingStatistic) {
-		return constructDataResponse(res, 200, "found an entry")
+		return constructDataResponse(res, 200, { statistic: existingStatistic })
 	} else {
-		return constructDataResponse(res, 404, "didn't find an entry")
+		const statistic = await createOwnStatisticForDate(ISOdate)
+		return constructDataResponse(res, 201, { statistic })
 	}
 
 	const correct = req.query.correct === undefined ? 0 : Number(req.query.correct)

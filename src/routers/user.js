@@ -26,11 +26,13 @@ router.get("/me/categories", checkToken, getOwnCategories)
 router.get("/me/categories/details", checkToken, getOwnCategoriesWithCards)
 
 router.get("/me/statistics", checkToken, getOwnStatistics)
-router.patch("/me/statistics/:id", checkToken, updateOwnStatistic)
 router.get("/me/statistics/today", checkToken, getOwnStatisticForToday)
-router.patch("/me/statistics/today", checkToken, updateOwnStatisticForToday)
 router.get("/me/statistics/:date", checkToken, getOwnStatisticForDate)
-router.post("/me/statistics/:date", checkToken, createOwnStatisticForDate)
 router.get("/me/statistics/:startDate/:endDate", checkToken, getOwnStatisticsForDateRange)
+
+router.post("/me/statistics/:date", checkToken, createOwnStatisticForDate)
+
+router.patch("/me/statistics/today", checkToken, updateOwnStatisticForToday)
+router.patch("/me/statistics/:id", checkToken, updateOwnStatistic)
 
 export default router
