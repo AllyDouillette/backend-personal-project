@@ -28,12 +28,12 @@ export const getStatistics = async (_, res) => {
 
 export const getOwnStatisticForToday = async (req, res) => {
 	const userId = req.params.user
-	const ISOdate = new Date().toISOString()
+	const ISOdate = new Date(new Date().setUTCHours(0,0,0,0)).toISOString()
 	const statistic = await getStatisticForUserAndDateDb(userId, ISOdate)
 	if (statistic) {
 		return constructDataResponse(res, 200, { statistic })
 	} else {
-		return constructMessageResponse(res, 404)
+		return constructMessageResponse(res, 404, "no record exists")
 	}
 }
 
