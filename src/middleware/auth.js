@@ -23,6 +23,7 @@ export const checkToken = async (req, res, next) => {
 	const decodedToken = verifyToken(token)
 	if (decodedToken.sub) {
 		// append info to params
+		console.log("decoded Token is", decodedToken)
 		req.params.user = decodedToken.sub
 		return next()
 	}
