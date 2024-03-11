@@ -53,7 +53,6 @@ export const checkAdminRole = async (req, res, next) => {
 			if (e instanceof PrismaClientKnownRequestError) {
 				console.log("prisma error", e.code, e.message)
 			}
-
 			console.log(e.code, "something went wrong")
 			return  constructMessageResponse(res, 403)
 		}

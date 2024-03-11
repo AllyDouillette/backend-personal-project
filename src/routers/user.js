@@ -7,6 +7,7 @@ import { getOwnStatistics,
 	updateOwnStatisticForToday,
 	getOwnStatisticForToday,
 	getOwnStatisticForDate,
+	createOwnStatisticForToday,
 	createOwnStatisticForDate,
 	getOwnStatisticsForDateRange
 } from "../controllers/statistic.js"
@@ -30,6 +31,7 @@ router.get("/me/statistics/today", checkToken, getOwnStatisticForToday)
 router.get("/me/statistics/:date", checkToken, getOwnStatisticForDate)
 router.get("/me/statistics/:startDate/:endDate", checkToken, getOwnStatisticsForDateRange)
 
+router.post("/me/statistics/today", checkToken, createOwnStatisticForToday)
 router.post("/me/statistics/:date", checkToken, createOwnStatisticForDate)
 
 router.patch("/me/statistics/today", checkToken, updateOwnStatisticForToday)

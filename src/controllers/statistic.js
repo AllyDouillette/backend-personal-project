@@ -44,6 +44,19 @@ export const getStatisticsForDay = async (req, res) => {
 	return constructDataResponse(res, 200, { statistics })
 }
 
+export const createOwnStatisticForToday = async (req, res) => {
+	const userId = req.params.user
+	const ISOdate = new Date(new Date().setUTCHours(0,0,0,0)).toISOString()
+
+	const existingStatistic = await getStatisticForUserAndDateDb(userId, ISOdate)
+	if (existingStatistic) {
+		return constructDataResponse(res, 200, { statistic: existingStatistic })
+	} else {
+		const statistic = await createStatisticDb(userId, ISOdate)
+		return constructDataResponse(res, 201, { statistic })
+	}
+}
+
 export const createOwnStatisticForDate = async (req, res) => {
 	const userId = req.params.user
 	const { date } = req.params
