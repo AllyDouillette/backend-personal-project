@@ -19,7 +19,22 @@ export const getStatistic = async (req, res) => {
 
 export const getStatistics = async (_, res) => {
 	const statistics = await getStatisticsDb()
-	return constructDataResponse(res, 200, { statistics })
+	if (statistics) {
+		return constructDataResponse(res, 200, { statistics })
+	} else {
+		return constructMessageResponse(res, 404)
+	}
+}
+
+export const getOwnStatisticForToday = async (req, res) => {
+	const userId = req.params.user
+	const ISOdate = new Date().toISOString()
+	const statistic = await getStatisticForUserAndDateDb(userId, ISOdate)
+	if (statistic) {
+		return constructDataResponse(res, 200, { statistic })
+	} else {
+		return constructMessageResponse(res, 404)
+	}
 }
 
 export const getStatisticsForDay = async (req, res) => {

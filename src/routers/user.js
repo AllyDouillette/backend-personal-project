@@ -4,6 +4,7 @@ import { getOwnCategories, getOwnCategoriesWithCards } from "../controllers/cate
 import { getOwnCards, getCardsFromUser } from "../controllers/card.js"
 import { getOwnStatistics,
 	updateOwnStatisticEntry,
+	getOwnStatisticForToday,
 	getOwnStatisticForDate,
 	createOwnStatisticForDate,
 	getOwnStatisticsForDateRange
@@ -20,6 +21,7 @@ router.get("/me/categories", checkToken, getOwnCategories)
 router.get("/me/categories/details", checkToken, getOwnCategoriesWithCards)
 router.get("/me/statistics", checkToken, getOwnStatistics)
 router.patch("/me/statistics/:id", checkToken, updateOwnStatisticEntry)
+router.get("/me/statistics/today", checkToken, getOwnStatisticForToday)
 router.get("/me/statistics/:date", checkToken, getOwnStatisticForDate)
 router.post("/me/statistics/:date", checkToken, createOwnStatisticForDate)
 router.get("/me/statistics/:startDate/:endDate", checkToken, getOwnStatisticsForDateRange)
