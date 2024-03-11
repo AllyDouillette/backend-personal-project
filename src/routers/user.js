@@ -3,8 +3,8 @@ import { getUsers, getUser, getSelf } from "../controllers/user.js"
 import { getOwnCategories, getOwnCategoriesWithCards } from "../controllers/category.js"
 import { getOwnCards, getCardsFromUser } from "../controllers/card.js"
 import { getOwnStatistics,
-	updateOwnStatisticEntry,
-	updateOwnStatisticEntryForToday,
+	updateOwnStatistic,
+	updateOwnStatisticForToday,
 	getOwnStatisticForToday,
 	getOwnStatisticForDate,
 	createOwnStatisticForDate,
@@ -26,9 +26,9 @@ router.get("/me/categories", checkToken, getOwnCategories)
 router.get("/me/categories/details", checkToken, getOwnCategoriesWithCards)
 
 router.get("/me/statistics", checkToken, getOwnStatistics)
-router.patch("/me/statistics/:id", checkToken, updateOwnStatisticEntry)
+router.patch("/me/statistics/:id", checkToken, updateOwnStatistic)
 router.get("/me/statistics/today", checkToken, getOwnStatisticForToday)
-router.patch("/me/statistics/today", checkToken, updateOwnStatisticEntryForToday)
+router.patch("/me/statistics/today", checkToken, updateOwnStatisticForToday)
 router.get("/me/statistics/:date", checkToken, getOwnStatisticForDate)
 router.post("/me/statistics/:date", checkToken, createOwnStatisticForDate)
 router.get("/me/statistics/:startDate/:endDate", checkToken, getOwnStatisticsForDateRange)

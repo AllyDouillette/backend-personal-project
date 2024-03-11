@@ -19,7 +19,7 @@ export const getStatistic = async (req, res) => {
 
 export const getStatistics = async (_, res) => {
 	const statistics = await getStatisticsDb()
-	if (statistics) {
+	if (statistics) {
 		return constructDataResponse(res, 200, { statistics })
 	} else {
 		return constructMessageResponse(res, 404)
@@ -30,7 +30,7 @@ export const getOwnStatisticForToday = async (req, res) => {
 	const userId = req.params.user
 	const ISOdate = new Date().toISOString()
 	const statistic = await getStatisticForUserAndDateDb(userId, ISOdate)
-	if (statistic) {
+	if (statistic) {
 		return constructDataResponse(res, 200, { statistic })
 	} else {
 		return constructMessageResponse(res, 404)
@@ -52,7 +52,7 @@ export const createOwnStatisticForDate = async (req, res) => {
 	return constructDataResponse(res, 200, { statistic })
 }
 
-export const updateOwnStatisticEntry = async (req, res) => {
+export const updateOwnStatistic = async (req, res) => {
 	const id = Number(req.params.id)
 
 	const existingStatistic = await getStatisticDb(id)
@@ -68,11 +68,24 @@ export const updateOwnStatisticEntry = async (req, res) => {
 	return constructDataResponse(res, 200, { statistic })
 }
 
+export const updateOwnStatisticForToday = async (req, res) => {
+	return constructDataResponse(res, 200, { ok: "k"})
+	const existingStatistic = await getOwnStatisticForToday(req, res)
+	if (existingStatistic) {
+		return constructDataResponse(res, 200, "found an entry")
+	} else {
+		return constructDataResponse(res, 404, "didn't find an entry")
+	}
+
+	const correct = req.query.correct === undefined ? 0 : Number(req.query.correct)
+	const incorrect = req.query.incorrect === undefined ? 0 : Number(req.query.incorrect)
+
+}
+
 export const getStatisticsForDateRange = async (req, res) => {
 	const { startDate, endDate } = req.params
 	const ISOStartDate = new Date(`${startDate}T00:00:00.000Z`)
 	const ISOEndDate = new Date(`${endDate}T00:00:00.000Z`)
-	console.log(ISOStartDate, ISOEndDate)
 	const statistics = await getStatisticsForDateRangeDb(ISOStartDate, ISOEndDate)
 	return constructDataResponse(res, 200, { statistics })
 }
