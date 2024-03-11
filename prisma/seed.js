@@ -14,7 +14,7 @@ import { processArray,
 	adverbsFrenchToGerman
 } from "../src/data/actualcards.js"
 import { createCategoryDb } from "../src/domain/category.js"
-import { createStatisticDb } from "../src/domain/statistic.js"
+import { createStatisticDb, updateStatisticDb } from "../src/domain/statistic.js"
 const prisma = new PrismaClient()
 
 async function seed () {
@@ -23,7 +23,18 @@ async function seed () {
 	console.log(mom)
 
 	const statistic = await createStatisticDb(mom.id, new Date(new Date().setUTCHours(0,0,0,0)).toISOString())
+	const statistic2 = await createStatisticDb(mom.id, new Date(new Date(2023,10,29).setUTCHours(0,0,0,0)).toISOString())
+	const statistic3 = await createStatisticDb(mom.id, new Date(new Date(2024,0,1).setUTCHours(0,0,0,0)).toISOString())
+
 	console.log(statistic)
+	console.log(statistic2)
+	console.log(statistic3)
+
+	const updatedStatistic2 = await updateStatisticDb(statistic2.id, 20, 9)
+	const updatedStatistic3 = await updateStatisticDb(statistic3.id, 4, 10)
+
+	console.log(updatedStatistic2)
+	console.log(updatedStatistic3)
 
 	let users = []
 	for (let i = 0; i < 5; i++) {
