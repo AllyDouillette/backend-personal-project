@@ -52,6 +52,7 @@ export const createOwnStatisticForToday = async (req, res) => {
 	if (existingStatistic) {
 		return constructDataResponse(res, 200, { statistic: existingStatistic })
 	} else {
+		console.log(existingStatistic, "test", userId)
 		const statistic = await createStatisticDb(userId, ISOdate)
 		return constructDataResponse(res, 201, { statistic })
 	}
