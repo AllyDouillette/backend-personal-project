@@ -77,17 +77,14 @@ export const updateOwnStatisticForToday = async (req, res) => {
 	const userId = req.params.user
 	const ISOdate = new Date(new Date().setUTCHours(0,0,0,0)).toISOString()
 	const existingStatistic = await getStatisticForUserAndDateDb(userId, ISOdate)
-	console.log(existingStatistic)
 	if (existingStatistic) {
 		const statistic = await updateStatisticDb(existingStatistic.id, existingStatistic.correct + correct, existingStatistic.incorrect + incorrect)
-		console.log(statistic)
 		return constructDataResponse(res, 200, { statistic })
 	} else {
 		const newStatistic = await createStatisticDb(userId, ISOdate)
 		const statistic = await updateStatisticDb(newStatistic.id, correct, incorrect)
 		return constructDataResponse(res, 201, { statistic })
 	}
-
 }
 
 export const getStatisticsForDateRange = async (req, res) => {
@@ -117,7 +114,6 @@ export const getOwnStatisticsForDateRange = async (req, res) => {
 	const userId = req.params.user
 	const ISOStartDate = new Date(`${startDate}T00:00:00.000Z`)
 	const ISOEndDate = new Date(`${endDate}T00:00:00.000Z`)
-	console.log(ISOStartDate, ISOEndDate)
 	const statistics = await getStatisticsForUserInDateRangeDb(userId, ISOStartDate, ISOEndDate)
 	return constructDataResponse(res, 200, { statistics })
 }
