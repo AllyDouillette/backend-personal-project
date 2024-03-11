@@ -44,7 +44,7 @@ export const checkAdminRole = async (req, res, next) => {
 		try {
 			const user = await getUserDb(sub)
 
-			if (user.Role === "ADMIN") {
+			if (user.role === "ADMIN") {
 				next()
 			} else {
 				return constructMessageResponse(res, 403)
