@@ -23,11 +23,9 @@ async function seed () {
 	console.log(mom)
 	const moritz = await createUserDb("momo", "fortnite14")
 
-	const statistic = await createStatisticDb(mom.id, new Date(new Date().setUTCHours(0,0,0,0)).toISOString())
 	const statistic2 = await createStatisticDb(mom.id, new Date(new Date(2023,10,29).setUTCHours(0,0,0,0)).toISOString())
 	const statistic3 = await createStatisticDb(mom.id, new Date(new Date(2024,0,1).setUTCHours(0,0,0,0)).toISOString())
 
-	console.log(statistic)
 	console.log(statistic2)
 	console.log(statistic3)
 
@@ -80,46 +78,55 @@ async function seed () {
 		console.log("error creating categories", error.code)
 	}
 
+	const randLevel = () => parseInt(Math.random() * 10)
+
 	const momCards1 = processArray(generalVocabGermanToFrench)
 	momCards1.forEach(card => {
 		card.setCategory(momCategory1.id)
 		card.setOwner(mom.id)
+		card.level = randLevel()
 	})
 
 	const momCards2 = processArray(generalVocabFrenchToGerman)
 	momCards2.forEach(card => {
 		card.setCategory(momCategory2.id)
 		card.setOwner(mom.id)
+		card.level = randLevel()
 	})
 
 	const momCards3 = processArray(verbsGermanToFrench)
 	momCards3.forEach(card => {
 		card.setCategory(momCategory3.id)
 		card.setOwner(mom.id)
+		card.level = randLevel()
 	})
 
 	const momCards4 = processArray(verbsFrenchToGerman)
 	momCards4.forEach(card => {
 		card.setCategory(momCategory4.id)
 		card.setOwner(mom.id)
+		card.level = randLevel()
 	})
 
 	const momCards5 = processArray(adjectivesGermanToFrench)
 	momCards5.forEach(card => {
 		card.setCategory(momCategory5.id)
 		card.setOwner(mom.id)
+		card.level = randLevel()
 	})
 
 	const momCards6 = processArray(adjectivesFrenchToGerman)
 	momCards6.forEach(card => {
 		card.setCategory(momCategory6.id)
 		card.setOwner(mom.id)
+		card.level = randLevel()
 	})
 
 	const momCards7 = processArray(adverbsFrenchToGerman)
 	momCards7.forEach(card => {
 		card.setCategory(momCategory7.id)
 		card.setOwner(mom.id)
+		card.level = randLevel()
 	})
 
 	const cards1 = await prisma.card.createMany({ data: momCards1 })
