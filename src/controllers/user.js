@@ -72,6 +72,9 @@ export const getUser = async (req, res) => {
 export const getSelf = async (req, res) => {
 	const userId = req.params.user
 	const user = await getUserDb(userId)
+	if (!user) {
+		return constructMessageResponse(res, 404)
+	}
 	// const cleanUser = scrubUserData(user)
 	delete user.password
 	return constructDataResponse(res, 200, { user })
