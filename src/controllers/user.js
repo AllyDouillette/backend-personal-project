@@ -76,6 +76,7 @@ export const getSelf = async (req, res) => {
 		return constructMessageResponse(res, 404)
 	}
 	// const cleanUser = scrubUserData(user)
+	// you have a right to see your own ID, which would get scrubbed otherwise
 	delete user.password
 	return constructDataResponse(res, 200, { user })
 }
