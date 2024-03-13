@@ -28,6 +28,7 @@ export const getStatistics = async (_, res) => {
 
 export const getOwnStatisticForToday = async (req, res) => {
 	const userId = req.params.user
+	
 	const ISOdate = new Date(new Date().setUTCHours(0,0,0,0)).toISOString()
 	const statistic = await getStatisticForUserAndDateDb(userId, ISOdate)
 	if (statistic) {

@@ -7,7 +7,13 @@ export const createUserDb = async (username, password, role = "USER") => {
 	const user = await prisma.user.create({ data: {
 		username,
 		password: await hashString(password),
-		role
+		role,
+		profile: {
+			create: {}
+		}
+	},
+	include: {
+		profile: true
 	}
 	})
 	return user
