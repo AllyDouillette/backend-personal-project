@@ -29,6 +29,14 @@ export const getStatisticsForUserDb = async (userId) => {
 	return await prisma.statistic.findMany({
 		where: {
 			userId
+		},
+		select: {
+			date: true,
+			correct: true,
+			incorrect: true
+		},
+		orderBy: {
+			date: "desc"
 		}
 	})
 }
@@ -57,6 +65,9 @@ export const getStatisticsForDateRangeDb = async (startDate, endDate) => {
 				gte: startDate,
 				lte: endDate
 			}
+		},
+		orderBy: {
+			date: "asc"
 		}
 	})
 }
@@ -69,6 +80,9 @@ export const getStatisticsForUserInDateRangeDb = async (userId, startDate, endDa
 				gte: startDate,
 				lte: endDate
 			}
+		},
+		orderBy: {
+			date: "asc"
 		}
 	})
 }

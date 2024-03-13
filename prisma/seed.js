@@ -21,6 +21,7 @@ async function seed () {
 	// create multiple users
 	const mom = await createUserDb("hummel", "fleißigesbienchen")
 	console.log(mom)
+	const moritz = await createUserDb("momo", "fortnite14")
 
 	const statistic = await createStatisticDb(mom.id, new Date(new Date().setUTCHours(0,0,0,0)).toISOString())
 	const statistic2 = await createStatisticDb(mom.id, new Date(new Date(2023,10,29).setUTCHours(0,0,0,0)).toISOString())
