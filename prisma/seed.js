@@ -22,18 +22,20 @@ async function seed () {
 	const mom = await createUserDb("hummel", "fleißigesbienchen")
 	console.log(mom)
 	const moritz = await createUserDb("momo", "fortnite14")
+	const demoAccount = await createUserDb("DemoDomino", "lernmausi")
+	console.log(demoAccount)
 
-	const statistic2 = await createStatisticDb(mom.id, new Date(new Date(2023,10,29).setUTCHours(0,0,0,0)).toISOString())
-	const statistic3 = await createStatisticDb(mom.id, new Date(new Date(2024,0,1).setUTCHours(0,0,0,0)).toISOString())
+	const statistic1 = await createStatisticDb(mom.id, new Date(new Date(2023,10,29).setUTCHours(0,0,0,0)).toISOString())
+	const statistic2 = await createStatisticDb(mom.id, new Date(new Date(2024,0,1).setUTCHours(0,0,0,0)).toISOString())
 
+	console.log(statistic1)
 	console.log(statistic2)
-	console.log(statistic3)
 
-	const updatedStatistic2 = await updateStatisticDb(statistic2.id, 20, 9)
-	const updatedStatistic3 = await updateStatisticDb(statistic3.id, 4, 10)
+	const updatedStatistic1 = await updateStatisticDb(statistic1.id, 20, 9)
+	const updatedStatistic2 = await updateStatisticDb(statistic2.id, 4, 10)
 
+	console.log(updatedStatistic1)
 	console.log(updatedStatistic2)
-	console.log(updatedStatistic3)
 
 	let users = []
 	for (let i = 0; i < 5; i++) {
@@ -41,16 +43,6 @@ async function seed () {
 		randomUser.role = "USER"
 		randomUser.password = await hashString(randomUser.password)
 		users.push(randomUser)
-	}
-
-	try {
-		await prisma.user.createMany({	data: users })
-		users = await prisma.user.findMany()
-	} catch (error) {
-		if (error instanceof PrismaClientKnownRequestError) {
-			console.log("Prisma error", error)
-		}
-		console.log(error, "error creating during creation of characters")
 	}
 
 	await createUserDb("admin@sevenbrains.com", "admin", "ADMIN")
@@ -69,93 +61,88 @@ async function seed () {
 		return category
 	})
 
-	try {
-		await prisma.category.createMany({
-			data: categories
+	// try {
+	// 	await prisma.category.createMany({
+	// 		data: categories
+	// 	})
+	// 	categories = await prisma.category.findMany()
+	// } catch (error) {
+	// 	console.log("error creating categories", error.code)
+	// }
+
+	const randLevel = () => Math.min(parseInt(Math.random() * 11), 10)
+	const randDate = () => {
+		const milliSecondsInYear = 1000 * 60 * 60 * 24 * 365
+		const randomTime = parseInt(Math.random() * milliSecondsInYear)
+		const date = new Date(new Date().setTime(new Date().getTime() - randomTime))
+		return date.toISOString()
+	}
+	const randReps = (level) => level + parseInt(Math.random() * 5)
+
+	const momCategories = [momCategory1, momCategory2, momCategory3, momCategory4, momCategory5, momCategory6, momCategory7]
+	const momCardArrays = [generalVocabGermanToFrench, generalVocabFrenchToGerman, verbsGermanToFrench, verbsFrenchToGerman, adjectivesGermanToFrench, adjectivesFrenchToGerman, adverbsFrenchToGerman]
+
+	const processedCardArrays = momCardArrays.map((cardArray, index) => {
+		const category = momCategories[index]
+		const newCardArray = processArray(cardArray)
+		newCardArray.forEach((card) => {
+			card.setCategory(category.id)
+			card.setOwner(mom.id)
+			card.level = randLevel()
+			if (card.level > 0) {
+				card.lastAskedAt = randDate()
+			}
+			card.repetitions = randReps(card.level)
 		})
-		categories = await prisma.category.findMany()
-	} catch (error) {
-		console.log("error creating categories", error.code)
+		return newCardArray
+	})
+
+	const batchCreate = async (cards) => {
+		const createdCards = await prisma.card.createMany({ data: cards })
+		console.log(createdCards)
 	}
 
-	const randLevel = () => parseInt(Math.random() * 10)
+	await Promise.allSettled(processedCardArrays.map(cardarray => batchCreate(cardarray)))
 
-	const momCards1 = processArray(generalVocabGermanToFrench)
-	momCards1.forEach(card => {
-		card.setCategory(momCategory1.id)
-		card.setOwner(mom.id)
+	// let cards = []
+	// categories.forEach(category => {
+	// 	for (let i = 0; i < 5; i++) {
+	// 		const newCard = new Card()
+	// 		newCard.setCategory(category.id)
+	// 		newCard.setOwner(category.ownerId)
+	// 		cards.push(newCard)
+	// 	}
+	// })
+
+	// try {
+	// 	await prisma.card.createMany({ data: cards })
+	// } catch (error) {
+	// 	console.log("error creating cards", error.code)
+	// }
+
+	const demoCategory = await createCategoryDb("Assorted facts", demoAccount.id)
+	const demoCards = [
+		new Card("Who composed the Windows 95 startup melody?", "Brian Eno. (Funnily enough, he composed it with his Macintosh)", "He was a member of the 70s band \"Roxy Music\" and went on to specialize in so-called \"Ambient Music\"."),
+		new Card("What is Taylor Swift's middle name?", "Alison", "The company used to manage her rights to trademarks, logos and the like bears her initials: TAS Rights Management LLC"),
+		new Card("David Bowie shared a birthday with another famous musician. Which one?", "Elvis Presley", "Coincidentally, the other musician was twelve years older than Bowie and a childhood influence due to his iconic influence on Rock'n'Roll."),
+		new Card("In the 2005 film adaptation of \"Harry Potter and the Goblet of Fire\", the rock group \"Weird Sisters\" playing the Yule Ball is played by real-life famous musicians. Which ones?", "Vocals: Jarvis Cocker, bass: Steve Mackey (both from Pulp); guitar: Jonny Greenwood, drums: Phil Selway (both from Radiohead), rhythm guitar: Jason Buckle (All Seeing I), keyboards and bagpipes: Steven Claydon (Add N to (X))", "They're from different bands in real life.")
+	]
+
+	const processedDemoCards = demoCards.map((card) => {
+		card.setOwner(demoAccount.id)
+		card.setCategory(demoCategory.id)
 		card.level = randLevel()
-	})
-
-	const momCards2 = processArray(generalVocabFrenchToGerman)
-	momCards2.forEach(card => {
-		card.setCategory(momCategory2.id)
-		card.setOwner(mom.id)
 		card.level = randLevel()
-	})
-
-	const momCards3 = processArray(verbsGermanToFrench)
-	momCards3.forEach(card => {
-		card.setCategory(momCategory3.id)
-		card.setOwner(mom.id)
-		card.level = randLevel()
-	})
-
-	const momCards4 = processArray(verbsFrenchToGerman)
-	momCards4.forEach(card => {
-		card.setCategory(momCategory4.id)
-		card.setOwner(mom.id)
-		card.level = randLevel()
-	})
-
-	const momCards5 = processArray(adjectivesGermanToFrench)
-	momCards5.forEach(card => {
-		card.setCategory(momCategory5.id)
-		card.setOwner(mom.id)
-		card.level = randLevel()
-	})
-
-	const momCards6 = processArray(adjectivesFrenchToGerman)
-	momCards6.forEach(card => {
-		card.setCategory(momCategory6.id)
-		card.setOwner(mom.id)
-		card.level = randLevel()
-	})
-
-	const momCards7 = processArray(adverbsFrenchToGerman)
-	momCards7.forEach(card => {
-		card.setCategory(momCategory7.id)
-		card.setOwner(mom.id)
-		card.level = randLevel()
-	})
-
-	const cards1 = await prisma.card.createMany({ data: momCards1 })
-	console.log(cards1)
-	const cards2 = await prisma.card.createMany({ data: momCards2 })
-	console.log(cards2)
-	const cards3 = await prisma.card.createMany({ data: momCards3 })
-	console.log(cards3)
-	const cards4 = await prisma.card.createMany({ data: momCards4 })
-	console.log(cards4)
-	const cards5 = await prisma.card.createMany({ data: momCards5 })
-	console.log(cards5)
-	const cards6 = await prisma.card.createMany({ data: momCards6 })
-	console.log(cards6)
-	const cards7 = await prisma.card.createMany({ data: momCards7 })
-	console.log(cards7)
-
-	let cards = []
-	categories.forEach(category => {
-		for (let i = 0; i < 5; i++) {
-			const newCard = new Card()
-			newCard.setCategory(category.id)
-			newCard.setOwner(category.ownerId)
-			cards.push(newCard)
+		if (card.level > 0) {
+			card.lastAskedAt = randDate()
 		}
+		card.repetitions = randReps(card.level)
+		return card
 	})
 
 	try {
-		await prisma.card.createMany({ data: cards })
+		const cards =	await prisma.card.createMany({ data: processedDemoCards })
+		console.log(cards)
 	} catch (error) {
 		console.log("error creating cards", error.code)
 	}
