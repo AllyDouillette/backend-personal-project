@@ -10,7 +10,8 @@
     "cleanRestart": "npx prisma migrate reset && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src",
-    "lintfix": "eslint src --fix"
+    "lintfix": "eslint src --fix",
+    "resetDemo": "node prisma/resetDemoUser.js"
   },
   "prisma": {
     "seed": "node prisma/seed.js"
