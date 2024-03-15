@@ -1,8 +1,7 @@
 import { PrismaClient } from "@prisma/client"
-import { Card, Category } from "../src/helper/constructors.js"
+import { Card } from "../src/helper/constructors.js"
 import  { createUserDb } from "../src/domain/user.js"
 import { User } from "../src/helper/constructors.js"
-import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library.js"
 import { hashString } from "../src/helper/hashing.js"
 import { processArray,
 	generalVocabGermanToFrench,
@@ -55,21 +54,6 @@ async function seed () {
 	const momCategory6 = await createCategoryDb("Verbes – F zu D", mom.id)
 	const momCategory7 = await createCategoryDb("Adverbes – F zu D", mom.id)
 
-	let categories = users.map(user => {
-		const category = new Category(`Testing Category by ${user.username}`)
-		category.setOwner(user.id)
-		return category
-	})
-
-	// try {
-	// 	await prisma.category.createMany({
-	// 		data: categories
-	// 	})
-	// 	categories = await prisma.category.findMany()
-	// } catch (error) {
-	// 	console.log("error creating categories", error.code)
-	// }
-
 	const randLevel = () => Math.min(parseInt(Math.random() * 11), 10)
 	const randDate = () => {
 		const milliSecondsInYear = 1000 * 60 * 60 * 24 * 365
@@ -103,22 +87,6 @@ async function seed () {
 	}
 
 	await Promise.allSettled(processedCardArrays.map(cardarray => batchCreate(cardarray)))
-
-	// let cards = []
-	// categories.forEach(category => {
-	// 	for (let i = 0; i < 5; i++) {
-	// 		const newCard = new Card()
-	// 		newCard.setCategory(category.id)
-	// 		newCard.setOwner(category.ownerId)
-	// 		cards.push(newCard)
-	// 	}
-	// })
-
-	// try {
-	// 	await prisma.card.createMany({ data: cards })
-	// } catch (error) {
-	// 	console.log("error creating cards", error.code)
-	// }
 
 	const demoCategory = await createCategoryDb("Assorted facts", demoAccount.id)
 	const demoCards = [
