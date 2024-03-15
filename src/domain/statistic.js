@@ -88,17 +88,12 @@ export const getStatisticsForUserInDateRangeDb = async (userId, startDate, endDa
 }
 
 export const createStatisticDb = async (userId, date) => {
-	try {
-		const response = await prisma.statistic.create({
-			data: {
-				userId,
-				date,
-				correct: 0,
-				incorrect: 0
-			}
-		})
-		return response
-	} catch (error) {
-		console.log(error, "error creating statistics")
-	}
+	return await prisma.statistic.create({
+		data: {
+			userId,
+			date,
+			correct: 0,
+			incorrect: 0
+		}
+	})
 }
