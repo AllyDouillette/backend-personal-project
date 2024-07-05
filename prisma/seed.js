@@ -18,11 +18,8 @@ const prisma = new PrismaClient()
 
 async function seed () {
 	// create multiple users
-	const mom = await createUserDb("hummel", "fleißigesbienchen")
-	console.log(mom)
-	const moritz = await createUserDb("momo", "fortnite14")
-	const demoAccount = await createUserDb("DemoDomino", "lernmausi")
-	console.log(demoAccount)
+	const mom = await createUserDb("hummel", "susnoy@gmx.de", "fleißigesbienchen")
+	const demoAccount = await createUserDb("DemoDomino", "rebecca.noy@gmx.de", "lernmausi")
 
 	const statistic1 = await createStatisticDb(mom.id, new Date(new Date(2023,10,29).setUTCHours(0,0,0,0)).toISOString())
 	const statistic2 = await createStatisticDb(mom.id, new Date(new Date(2024,0,1).setUTCHours(0,0,0,0)).toISOString())
@@ -44,7 +41,7 @@ async function seed () {
 		users.push(randomUser)
 	}
 
-	await createUserDb("admin@sevenbrains.com", "admin", "ADMIN")
+	await createUserDb("admin", "", "letmeinI'manAdmin", "ADMIN")
 
 	const momCategory1 = await createCategoryDb("Vocabulaire générale – D zu F", mom.id)
 	const momCategory2 = await createCategoryDb("Vocabulaire générale – F zu D", mom.id)

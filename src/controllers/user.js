@@ -6,14 +6,14 @@ import { generateToken } from "../helper/authentication.js"
 import { scrubUserData } from "../helper/helper.js"
 
 export const registerUser = async (req, res) => {
-	const { username, password } = req.body
+	const { username, email, password } = req.body
 
-	if ( !username || !password ) {
+	if ( !username || !password || !email ) {
 		return constructMessageResponse(res, 400)
 	}
 
 	try {
-		const user = await createUserDb(username, password)
+		const user = await createUserDb(username, email, password)
 		const token = generateToken({ sub: user.id })
 		const cleanUser = scrubUserData(user)
 		return constructDataResponse(res, 201, { user: cleanUser, token })

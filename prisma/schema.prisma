@@ -11,6 +11,7 @@ datasource db {
 model User {
   id         String      @id @default(uuid())
   username   String      @unique
+  email      String      @unique
   password   String
   role       Role
   category   Category[]
@@ -27,7 +28,6 @@ model Profile {
   user      User     @relation(fields: [userId], references: [id])
   firstName String?
   lastName  String?
-  email     String?  @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
