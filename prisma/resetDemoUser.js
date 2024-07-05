@@ -1,8 +1,7 @@
 import { PrismaClient } from "@prisma/client"
 import { Card } from "../src/helper/constructors.js"
 import  { createUserDb, getUserByUsername } from "../src/domain/user.js"
-import { getCardsFromOwnerDb } from "../src/domain/card.js"
-import { createCategoryDb, getCategoriesDb } from "../src/domain/category.js"
+import { createCategoryDb } from "../src/domain/category.js"
 import { createStatisticDb, updateStatisticDb } from "../src/domain/statistic.js"
 import { randDate, randInt, randLevel, randReps } from "../src/helper/helper.js"
 const prisma = new PrismaClient()
@@ -14,47 +13,47 @@ async function seed () {
 		if (search.id) {
 			demoAccount = search
 		} else {
-			demoAccount = await createUserDb("DemoDomino", "lernmausi")
+			demoAccount = await createUserDb("DemoDomino", "rebecca.noy@gmx.de", "lernmausi")
 		}
 	} catch (error) {
 		console.log(error, "error finding the demo user")
 	}
 	console.log(demoAccount)
 
-  const deleteCards = await prisma.card.deleteMany({
-    where: {
-      ownerId: demoAccount.id
-    }
-  })
-  console.log("deleted Cards", deleteCards)
+	const deleteCards = await prisma.card.deleteMany({
+		where: {
+			ownerId: demoAccount.id
+		}
+	})
+	console.log("deleted Cards", deleteCards)
 
-  const deleteCategory = await prisma.category.deleteMany({
-    where: {
-      ownerId: demoAccount.id
-    }
-  })
-  console.log("deleted categories", deleteCategory)
+	const deleteCategory = await prisma.category.deleteMany({
+		where: {
+			ownerId: demoAccount.id
+		}
+	})
+	console.log("deleted categories", deleteCategory)
 
-  const deleteStatistic = await prisma.statistic.deleteMany({
-    where: {
-      userId: demoAccount.id
-    }
-  })
-  console.log("deleted statistics", deleteStatistic)
+	const deleteStatistic = await prisma.statistic.deleteMany({
+		where: {
+			userId: demoAccount.id
+		}
+	})
+	console.log("deleted statistics", deleteStatistic)
 
-  for (let i = 0; i < 5; i++) {
-    const randomAmountOfDays = randInt(1, 365*2)
-    const milliSecondsInDay = 1000 * 60 * 60 * 24
-    const randomDate = new Date().setUTCHours(0,0,0,0) - randomAmountOfDays * milliSecondsInDay
-	  const statistic = await createStatisticDb(demoAccount.id, new Date(randomDate).toISOString())
-	  await updateStatisticDb(statistic.id, randInt(1, 50), randInt(1, 50))
-  }
-  const statistics = await prisma.statistic.findMany({
-    where: {
-      userId: demoAccount.id
-    }
-  })
-  console.log("user statistics count", statistics.length)
+	for (let i = 0; i < 5; i++) {
+		const randomAmountOfDays = randInt(1, 365*2)
+		const milliSecondsInDay = 1000 * 60 * 60 * 24
+		const randomDate = new Date().setUTCHours(0,0,0,0) - randomAmountOfDays * milliSecondsInDay
+		const statistic = await createStatisticDb(demoAccount.id, new Date(randomDate).toISOString())
+		await updateStatisticDb(statistic.id, randInt(1, 50), randInt(1, 50))
+	}
+	const statistics = await prisma.statistic.findMany({
+		where: {
+			userId: demoAccount.id
+		}
+	})
+	console.log("user statistics count", statistics.length)
 
 	const demoCategory = await createCategoryDb("Assorted facts", demoAccount.id)
 	const demoCards = [
