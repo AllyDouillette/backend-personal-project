@@ -11,7 +11,7 @@ const getTemplate = async (req, res) => {
 		base: "ImportTemplate.xlsx",
 		ext: "ignored",
 	})
-	res.download(file, "apprendio-import.xlsx")
+	res.download(file, "apprendio-template.xlsx")
 }
 
 router.get("/import", checkToken, getTemplate)
