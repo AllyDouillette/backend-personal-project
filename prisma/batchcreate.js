@@ -1,10 +1,11 @@
 import { PrismaClient } from "@prisma/client"
 import { Card } from "../src/helper/constructors.js"
+import { englishrest } from "./englisch-rest.js"
 
 const prisma = new PrismaClient
 const batchcreate = async (cardArray) => {
 	try {
-		const categoryId = 0
+		const categoryId = 13
 		const ownerId = "fe158a4f-b448-4b3d-9339-c4261cd42f22"
 		const Cards = cardArray.map(card => {
 			const result = new Card(card[0], card[1], card[2])
@@ -19,4 +20,4 @@ const batchcreate = async (cardArray) => {
 	}
 }
 
-await batchcreate()
+await batchcreate(englishrest)

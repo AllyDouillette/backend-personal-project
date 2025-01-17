@@ -1,0 +1,1233 @@
+{
+	"type": "dictionary",
+	"translation": "halten",
+	"dictionary": {
+		"result": [
+			{
+				"source": 0,
+				"label": "im PONS Wörterbuch",
+				"content": [
+					{
+						"lang": "fr",
+						"hits": [
+							{
+								"type_hint": "entry",
+								"id": "Edefr2974515",
+								"opendict": false,
+								"signature_id": 0,
+								"order_key": 0,
+								"resources": 1,
+								"roms": [
+									{
+										"type_hint": "rom",
+										"id": "Rdefr2974518",
+										"numeral": "I",
+										"headword": "tenir",
+										"headword_normalized": "tenir",
+										"headword_full": "tenir  <span class=\"phonetics\">[t(ə)niʀ]</span> <span class=\"wordclass\"><acronym title=\"Verb\">VERB</acronym></span> <span class=\"verbclass\"><acronym title=\"transitives Verb\">trans</acronym></span>",
+										"wordclass": "Transitives Verb",
+										"wordclass_untranslated": "TRANSITIVE_VERB",
+										"conjugationTable": "tenir",
+										"arabs": [
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974519",
+												"arab_type": 0,
+												"header": "1. tenir <span class=\"sense\">(avoir à la main, dans les bras)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974520",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong>",
+														"target": "halten"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974521",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> <acronym title=\"quelqu'un\">qn</acronym> sur ses genoux</span>",
+														"target": "<acronym title=\"jemanden\">jdn</acronym> auf dem Schoß haben"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974522",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> <acronym title=\"quelque chose\">qc</acronym> loin de soi</span>",
+														"target": "<acronym title=\"etwas\">etw</acronym> weghalten"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974523",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> <acronym title=\"quelque chose\">qc</acronym> loin de soi/de <acronym title=\"quelqu'un\">qn</acronym></span>",
+														"target": "<acronym title=\"etwas\">etw</acronym> von sich/von <acronym title=\"jemandem\">jdm</acronym> weghalten"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974524",
+												"arab_type": 0,
+												"header": "2. tenir <span class=\"sense\">(maintenir dans la même position)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974525",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong>",
+														"target": "halten"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974526",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> les yeux fermés/ouverts</span>",
+														"target": "die Augen geschlossen/offen halten"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974527",
+												"arab_type": 0,
+												"header": "3. tenir <span class=\"sense\">(rester dans un lieu)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974528",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> la chambre/le lit</span>",
+														"target": "im Zimmer/Bett bleiben"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974529",
+												"arab_type": 0,
+												"header": "4. tenir <span class=\"sense\">(avoir)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974530",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong> <span class=\"colloc\">(article, marchandise)</span>",
+														"target": "führen"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974531",
+												"arab_type": 0,
+												"header": "5. tenir <span class=\"sense\">(garder)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974532",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> son sérieux</span>",
+														"target": "ernst bleiben"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974533",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> son sérieux</span> <span class=\"topic\"><acronym title=\"Musik\">MUS</acronym></span> <span class=\"colloc\">(note)</span>",
+														"target": "halten"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974534",
+												"arab_type": 0,
+												"header": "6. tenir <span class=\"sense\">(avoir sous son contrôle)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974535",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> son cheval</span>",
+														"target": "sein Pferd halten"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974536",
+												"arab_type": 0,
+												"header": "7. tenir <span class=\"sense\">(s&#39;occuper de)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974537",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong> <span class=\"colloc\">(comptes, hôtel, magasin)</span>",
+														"target": "sich kümmern um"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974538",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong> <span class=\"colloc\">(comptes, hôtel, magasin)</span>",
+														"target": "führen"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974539",
+												"arab_type": 0,
+												"header": "8. tenir <span class=\"sense\">(assumer)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974540",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong> <span class=\"colloc\">(conférence, meeting)</span>",
+														"target": "halten"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974541",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong> <span class=\"colloc\">(rôle)</span>",
+														"target": "spielen"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974542",
+												"arab_type": 0,
+												"header": "9. tenir <span class=\"sense\">(avoir reçu)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974543",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> une information de <acronym title=\"quelqu'un\">qn</acronym></span>",
+														"target": "eine Information von <acronym title=\"jemandem\">jdm</acronym> haben"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974544",
+												"arab_type": 0,
+												"header": "10. tenir <span class=\"sense\">(occuper)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974545",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong> <span class=\"colloc\">(largeur, place)</span>",
+														"target": "einnehmen"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974546",
+												"arab_type": 0,
+												"header": "11. tenir <span class=\"sense\">(contenir)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974547",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong>",
+														"target": "fassen"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974548",
+												"arab_type": 0,
+												"header": "12. tenir <span class=\"sense\">(résister à)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974549",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> l&#39;eau</span>",
+														"target": "wasserdicht sein"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974550",
+												"arab_type": 0,
+												"header": "13. tenir <span class=\"sense\">(mobiliser)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974551",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> <acronym title=\"quelqu'un\">qn</acronym></span> <span class=\"subject\">affaire, lecture, travail:</span>",
+														"target": "<acronym title=\"jemanden\">jdn</acronym> in Anspruch nehmen"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974552",
+												"arab_type": 0,
+												"header": "14. tenir <span class=\"sense\">(retenir)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974553",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong> <span class=\"colloc\">(personne)</span>",
+														"target": "aufhalten"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974554",
+												"arab_type": 0,
+												"header": "15. tenir <span class=\"sense\">(habiter)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974555",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> <acronym title=\"quelqu'un\">qn</acronym></span> <span class=\"subject\">jalousie, colère, envie:</span>",
+														"target": "packen"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974556",
+												"arab_type": 0,
+												"header": "16. tenir <span class=\"sense\">(obliger, contraindre)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974557",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">être tenu(e) à <acronym title=\"quelque chose\">qc</acronym></span>",
+														"target": "an <acronym title=\"etwas\">etw</acronym>  <span class=\"case\"><acronym title=\"Akkusativ\">Akk</acronym></span>  gebunden sein"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974558",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">être tenu(e) de faire <acronym title=\"quelque chose\">qc</acronym></span>",
+														"target": "<acronym title=\"etwas\">etw</acronym> tun müssen"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974559",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">être tenu(e) de fournir des renseignements</span>",
+														"target": "auskunftspflichtig sein"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974560",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">être juridiquement tenu(e) de faire <acronym title=\"quelque chose\">qc</acronym></span>",
+														"target": "rechtlich verpflichtet sein <acronym title=\"etwas\">etw</acronym> zu tun"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974561",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">tenu(e) par contrat</span>",
+														"target": "vertraglich verpflichtet"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974562",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">tenu(e) de respecter les directives</span> <span class=\"collocator\">collaborateur, administration</span>",
+														"target": "weisungsgebunden"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974563",
+												"arab_type": 0,
+												"header": "17. tenir <span class=\"sense\">(respecter)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974564",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong> <span class=\"colloc\">(parole, promesse, pari)</span>",
+														"target": "halten"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974565",
+												"arab_type": 0,
+												"header": "18. tenir <span class=\"sense\">(énoncer)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974566",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong> <span class=\"colloc\">(propos, discours)</span>",
+														"target": "halten"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974567",
+												"arab_type": 0,
+												"header": "19. tenir <span class=\"sense\">(juger)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974568",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> un chanteur pour un talent/un achat pour une bêtise</span>",
+														"target": "einen Sänger für ein Talent/einen Kauf für eine Dummheit halten"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974569",
+												"arab_type": 0,
+												"header": "Wendungen:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974570",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"idiom_proverb\"><strong class=\"tilde\">tenir</strong> sa langue</span>",
+														"target": "den Mund halten <span class=\"style\"><acronym title=\"umgangssprachlich\">ugs</acronym></span>"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974571",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"idiom_proverb\"><strong class=\"tilde\">tenir</strong> lieu de <acronym title=\"quelque chose\">qc</acronym></span>",
+														"target": "die Stelle von <acronym title=\"etwas\">etw</acronym> einnehmen"
+													}
+												]
+											}
+										]
+									},
+									{
+										"type_hint": "rom",
+										"id": "Rdefr2974572",
+										"numeral": "II",
+										"headword": "tenir",
+										"headword_normalized": "tenir",
+										"headword_full": "tenir  <span class=\"phonetics\">[t(ə)niʀ]</span> <span class=\"wordclass\"><acronym title=\"Verb\">VERB</acronym></span> <span class=\"verbclass\"><acronym title=\"intransitives Verb\">intr</acronym></span>",
+										"wordclass": "Intransitives Verb",
+										"wordclass_untranslated": "INTRANSITIVE_VERB",
+										"conjugationTable": "tenir",
+										"arabs": [
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974573",
+												"arab_type": 0,
+												"header": "1. tenir <span class=\"sense\">(être attaché)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974574",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> à <acronym title=\"quelqu'un\">qn</acronym>/<acronym title=\"quelque chose\">qc</acronym></span>",
+														"target": "an <acronym title=\"jemandem\">jdm</acronym>/<acronym title=\"etwas\">etw</acronym> hängen"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974575",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">je tiens beaucoup à lui</span>",
+														"target": "mir liegt sehr viel an ihm"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974576",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> à sa réputation</span>",
+														"target": "auf seinen Ruf Wert legen"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974577",
+												"arab_type": 0,
+												"header": "2. tenir <span class=\"sense\">(vouloir absolument)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974578",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> à faire <acronym title=\"quelque chose\">qc</acronym>/à ce que tout soit en ordre</span>",
+														"target": "Wert darauf legen <acronym title=\"etwas\">etw</acronym> zu tun/, dass alles ordentlich ist"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974579",
+												"arab_type": 0,
+												"header": "3. tenir <span class=\"sense\">(être dû à)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974580",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> à <acronym title=\"quelque chose\">qc</acronym></span>",
+														"target": "auf <acronym title=\"etwas\">etw</acronym>  <span class=\"case\"><acronym title=\"Akkusativ\">Akk</acronym></span>  zurückzuführen sein"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974581",
+												"arab_type": 0,
+												"header": "4. tenir <span class=\"sense\">(être fixé)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974582",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong>",
+														"target": "halten"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974583",
+												"arab_type": 0,
+												"header": "5. tenir <span class=\"sense\">(être cohérent)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974584",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong> <span class=\"subject\">raisonnement, théorie:</span>",
+														"target": "haltbar sein"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974585",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong> <span class=\"subject\">argument:</span>",
+														"target": "stichhaltig sein"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974586",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong> <span class=\"subject\">histoire:</span>",
+														"target": "glaubhaft sein"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974587",
+												"arab_type": 0,
+												"header": "6. tenir <span class=\"style\"><acronym title=\"umgangssprachlich\">ugs</acronym></span> <span class=\"sense\">(rester valable)</span> <span class=\"subject\">plan, projet</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974588",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong>",
+														"target": "stehen <span class=\"style\"><acronym title=\"umgangssprachlich\">ugs</acronym></span>"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974589",
+												"arab_type": 0,
+												"header": "7. tenir <span class=\"sense\">(résister)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974590",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong>",
+														"target": "aushalten"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974591",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong> <span class=\"topic\"><acronym title=\"Militär\">MILIT</acronym></span>",
+														"target": "die Stellung halten"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974592",
+												"arab_type": 0,
+												"header": "8. tenir <span class=\"sense\">(être contenu dans)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974593",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> dans une voiture</span>",
+														"target": "in einem Auto Platz haben"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974594",
+												"arab_type": 0,
+												"header": "9. tenir <span class=\"sense\">(se résumer)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974595",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> en un mot/quelques pages</span>",
+														"target": "in einem Wort/wenigen Seiten zusammenfassen"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974596",
+												"arab_type": 0,
+												"header": "10. tenir <span class=\"sense\">(durer)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974597",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong>",
+														"target": "[sich] halten"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974598",
+												"arab_type": 0,
+												"header": "11. tenir <span class=\"sense\">(ressembler à)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974599",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> de <acronym title=\"quelqu'un\">qn</acronym>/<acronym title=\"quelque chose\">qc</acronym></span>",
+														"target": "<acronym title=\"jemandem\">jdm</acronym>/einer <acronym title=\"Sache\">S.</acronym> ähneln"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974600",
+												"arab_type": 0,
+												"header": "12. tenir <span class=\"sense\">(être contigu)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974601",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\"><strong class=\"tilde\">tenir</strong> à <acronym title=\"quelque chose\">qc</acronym></span>",
+														"target": "an <acronym title=\"etwas\">etw</acronym>  <span class=\"case\"><acronym title=\"Akkusativ\">Akk</acronym></span>  grenzen"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974602",
+												"arab_type": 0,
+												"header": "13. tenir <span class=\"topic\"><acronym title=\"Kartenspiele\">KARTEN</acronym></span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974603",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong> <span class=\"sense\">(être maître)</span>",
+														"target": "stechen"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974604",
+												"arab_type": 0,
+												"header": "Wendungen:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974605",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"idiom_proverb\"><strong class=\"tilde\">tenir</strong> bon</span>",
+														"target": "durchhalten"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974606",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"idiom_proverb\"><strong class=\"tilde\">tenir</strong> bon</span>",
+														"target": "nicht nachgeben"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974607",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"idiom_proverb\">tiens/tenez !</span>",
+														"target": "hier!"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974608",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"idiom_proverb\">tiens/tenez !</span>",
+														"target": "da! <span class=\"style\"><acronym title=\"umgangssprachlich\">ugs</acronym></span>"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974609",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"idiom_proverb\">tiens ! Il pleut</span>",
+														"target": "schau [mal]! Es regnet"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974610",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"idiom_proverb\">n&#39;y plus <strong class=\"tilde\">tenir</strong></span>",
+														"target": "es nicht mehr aushalten"
+													}
+												]
+											}
+										]
+									},
+									{
+										"type_hint": "rom",
+										"id": "Rdefr2974611",
+										"numeral": "III",
+										"headword": "tenir",
+										"headword_normalized": "tenir",
+										"headword_full": "tenir  <span class=\"phonetics\">[t(ə)niʀ]</span> <span class=\"wordclass\"><acronym title=\"Verb\">VERB</acronym></span> <span class=\"verbclass\"><acronym title=\"reflexives Verb\">refl</acronym></span>",
+										"wordclass": "Pronomialverb",
+										"wordclass_untranslated": "PRONOMIAL_VERB",
+										"conjugationTable": "tenir",
+										"arabs": [
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974612",
+												"arab_type": 0,
+												"header": "1. tenir <span class=\"sense\">(se prendre)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974613",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">se <strong class=\"tilde\">tenir</strong> par la main/le bras</span>",
+														"target": "Hand in Hand/untergehakt gehen"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974614",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">se <strong class=\"tilde\">tenir</strong> par la taille/les épaules</span>",
+														"target": "sich bei der Taille/an den Schultern fassen"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974615",
+												"arab_type": 0,
+												"header": "2. tenir <span class=\"sense\">(s&#39;accrocher)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974616",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">se <strong class=\"tilde\">tenir</strong> à <acronym title=\"quelque chose\">qc</acronym></span>",
+														"target": "sich an <acronym title=\"etwas\">etw</acronym>  <span class=\"case\"><acronym title=\"Dativ\">Dat</acronym></span>  fest halten"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974617",
+												"arab_type": 0,
+												"header": "3. tenir <span class=\"sense\">(rester, demeurer)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974618",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">se <strong class=\"tilde\">tenir</strong> debout/assis(e)/couché(e)</span>",
+														"target": "stehen/sitzen/liegen"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974619",
+												"arab_type": 0,
+												"header": "4. tenir <span class=\"sense\">(se comporter)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974620",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<strong class=\"headword\">tenir</strong>",
+														"target": "sich benehmen"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974621",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">se <strong class=\"tilde\">tenir</strong> bien/mal</span>",
+														"target": "sich gut/schlecht benehmen"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974622",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">savoir se <strong class=\"tilde\">tenir</strong></span>",
+														"target": "sich benehmen können"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974623",
+												"arab_type": 0,
+												"header": "5. tenir <span class=\"sense\">(avoir lieu)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974624",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">se <strong class=\"tilde\">tenir</strong> dans une ville/le mois prochain</span> <span class=\"subject\">réunion, conférence:</span>",
+														"target": "in einer Stadt/nächsten Monat stattfinden"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974625",
+												"arab_type": 0,
+												"header": "6. tenir <span class=\"sense\">(être cohérent)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974626",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">se <strong class=\"tilde\">tenir</strong></span> <span class=\"subject\">événements, faits:</span>",
+														"target": "stimmig sein"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974627",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">se <strong class=\"tilde\">tenir</strong></span> <span class=\"subject\">événements, faits:</span>",
+														"target": "zusammenpassen"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974628",
+												"arab_type": 0,
+												"header": "7. tenir <span class=\"sense\">(se limiter à)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974629",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">s&#39;en <strong class=\"tilde\">tenir</strong> à <acronym title=\"quelque chose\">qc</acronym></span>",
+														"target": "es bei <acronym title=\"etwas\">etw</acronym> bewenden lassen"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974630",
+												"arab_type": 0,
+												"header": "8. tenir <span class=\"sense\">(respecter)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974631",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">se <strong class=\"tilde\">tenir</strong> à <acronym title=\"quelque chose\">qc</acronym></span>",
+														"target": "sich an <acronym title=\"etwas\">etw</acronym>  <span class=\"case\"><acronym title=\"Akkusativ\">Akk</acronym></span>  halten"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974632",
+												"arab_type": 0,
+												"header": "9. tenir <span class=\"sense\">(se considérer comme)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974633",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">se <strong class=\"tilde\">tenir</strong> pour <acronym title=\"quelque chose\">qc</acronym></span>",
+														"target": "sich für <acronym title=\"etwas\">etw</acronym> halten"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974634",
+												"arab_type": 0,
+												"header": "Wendungen:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974635",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"idiom_proverb\">se le <strong class=\"tilde\">tenir</strong> pour dit</span>",
+														"target": "sich  <span class=\"case\"><acronym title=\"Dativ\">Dat</acronym></span>  das gesagt sein lassen"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974636",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"idiom_proverb\">savoir à quoi s&#39;en <strong class=\"tilde\">tenir</strong></span>",
+														"target": "wissen, woran man ist <span class=\"style\"><acronym title=\"umgangssprachlich\">ugs</acronym></span>"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr34071781",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"idiom_proverb\">tiens-toi/tenez-vous bien !</span>",
+														"target": "nun halte dich / haltet euch / halten Sie sich mal gut fest!"
+													}
+												]
+											}
+										]
+									},
+									{
+										"type_hint": "rom",
+										"id": "Rdefr2974637",
+										"numeral": "IV",
+										"headword": "tenir",
+										"headword_normalized": "tenir",
+										"headword_full": "tenir  <span class=\"phonetics\">[t(ə)niʀ]</span> <span class=\"wordclass\"><acronym title=\"Verb\">VERB</acronym></span> <span class=\"verbclass\"><acronym title=\"intransitives Verb\">intr</acronym></span> <span class=\"info\"><acronym title=\"unpersönlich\">unpers</acronym></span>",
+										"wordclass": "Intransitives Verb",
+										"wordclass_untranslated": "INTRANSITIVE_VERB",
+										"conjugationTable": "tenir",
+										"arabs": [
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974638",
+												"arab_type": 0,
+												"header": "tenir <span class=\"sense\">(dépendre de)</span>:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974639",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">ça tient à <acronym title=\"quelqu'un\">qn</acronym>/<acronym title=\"quelque chose\">qc</acronym></span>",
+														"target": "das hängt von <acronym title=\"jemandem\">jdm</acronym>/<acronym title=\"etwas\">etw</acronym> ab"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974640",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">je me demande à quoi ça tient</span>",
+														"target": "ich frage mich, woran das liegt"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974641",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">il tient à toi de faire <acronym title=\"quelque chose\">qc</acronym></span>",
+														"target": "es ist deine Sache  <span class=\"target\">[<span class=\"or\"><acronym title=\"oder\">o.</acronym></span> es obliegt dir <span class=\"style\"><acronym title=\"gehobener Sprachgebrauch\">geh</acronym></span>]</span>  <acronym title=\"etwas\">etw</acronym> zu tun"
+													},
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974642",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"example\">il ne tient qu&#39;à toi de faire <acronym title=\"quelque chose\">qc</acronym>/que je parte</span>",
+														"target": "es hängt nur von dir ab <acronym title=\"etwas\">etw</acronym> zu tun/, ob ich gehe"
+													}
+												]
+											},
+											{
+												"type_hint": "arab",
+												"id": "Adefr2974643",
+												"arab_type": 0,
+												"header": "Wendungen:",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr2974644",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "<span class=\"idiom_proverb\">qu&#39;à cela ne tienne</span>",
+														"target": "daran soll&#39;s nicht liegen"
+													}
+												]
+											}
+										]
+									}
+								]
+							},
+							{
+								"type_hint": "entry",
+								"id": "Edefr34979811",
+								"opendict": true,
+								"signature_id": 0,
+								"order_key": 0,
+								"resources": 0,
+								"roms": [
+									{
+										"type_hint": "rom",
+										"id": "Rdefr34979813",
+										"numeral": "",
+										"headword": "tenir",
+										"headword_normalized": "tenir",
+										"headword_full": "tenir    <span class=\"wordclass\"><acronym title=\"Verb\">VERB</acronym></span>",
+										"wordclass": "Verb",
+										"wordclass_untranslated": "VERB",
+										"arabs": [
+											{
+												"type_hint": "arab",
+												"id": "Adefr34979814",
+												"arab_type": 0,
+												"header": "",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr34979815",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "La concurrence n&#39;aura qu&#39;à bien se <strong class=\"tilde\">tenir.</strong>",
+														"target": "Die Konkurrenz wird sich warm anziehen müssen."
+													}
+												]
+											}
+										]
+									}
+								]
+							},
+							{
+								"type_hint": "entry",
+								"id": "Edefr53833109",
+								"opendict": true,
+								"signature_id": 0,
+								"order_key": 0,
+								"resources": 0,
+								"roms": [
+									{
+										"type_hint": "rom",
+										"id": "Rdefr53833108",
+										"numeral": "",
+										"headword": "tenir",
+										"headword_normalized": "tenir",
+										"headword_full": "tenir    <span class=\"wordclass\"><acronym title=\"Verb\">VERB</acronym></span>",
+										"wordclass": "Verb",
+										"wordclass_untranslated": "VERB",
+										"arabs": [
+											{
+												"type_hint": "arab",
+												"id": "Adefr53833111",
+												"arab_type": 0,
+												"header": "",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr53833112",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "être tenu de/à faire <acronym title=\"quelque chose\">qc</acronym>",
+														"target": "verpflichtet sein, <acronym title=\"etwas\">etw</acronym> zu tun"
+													}
+												]
+											}
+										]
+									}
+								]
+							},
+							{
+								"type_hint": "entry",
+								"id": "Edefr53833115",
+								"opendict": true,
+								"signature_id": 0,
+								"order_key": 0,
+								"resources": 0,
+								"roms": [
+									{
+										"type_hint": "rom",
+										"id": "Rdefr53833114",
+										"numeral": "",
+										"headword": "tenir",
+										"headword_normalized": "tenir",
+										"headword_full": "tenir    <span class=\"wordclass\"><acronym title=\"Verb\">VERB</acronym></span>",
+										"wordclass": "Verb",
+										"wordclass_untranslated": "VERB",
+										"arabs": [
+											{
+												"type_hint": "arab",
+												"id": "Adefr53833117",
+												"arab_type": 0,
+												"header": "",
+												"translations": [
+													{
+														"type_hint": "translation",
+														"id": "Tdefr53833118",
+														"translation_type": 1,
+														"examples": -1,
+														"source": "être tenu de <acronym title=\"quelque chose\">qc</acronym> <span class=\"topic\"><acronym title=\"Jura, Recht\">JUR</acronym></span>",
+														"target": "für <acronym title=\"etwas\">etw</acronym> verantwortlich sein"
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		],
+		"queryMatch": {
+			"type": "HeadwordExactMatch",
+			"elementId": "Rdefr2974518",
+			"language": "fr"
+		},
+		"translation": "halten",
+		"content": {
+			"dictionaryResult": true,
+			"bidirectionalExamples": false,
+			"monolingualExamples": true,
+			"editoriallyVerifiedExampleSentences": true,
+			"flections": {
+				"conjugation": true
+			}
+		},
+		"meta": {
+			"userQuery": {
+				"nearestNeighbours": {
+					"before": [
+						"tendre",
+						"tendrement",
+						"tendresse",
+						"tendreté",
+						"tendron",
+						"tendue",
+						"ténèbres",
+						"ténébreux",
+						"teneur",
+						"ténia"
+					],
+					"after": [
+						"tennis",
+						"tennis-elbow",
+						"tennisman",
+						"tennistique",
+						"tenon",
+						"ténor",
+						"tenseur",
+						"tenside",
+						"tensioactif",
+						"tensiomètre"
+					]
+				}
+			}
+		}
+	},
+	"usage": {}
+}
