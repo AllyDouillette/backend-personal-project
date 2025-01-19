@@ -39,11 +39,11 @@ export const loginUser = async (req, res) => {
 		const user = await getUserByUsername(username)
 
 		if (!user) {
-			return constructMessageResponse(res, 401)
+			return constructMessageResponse(res, 401, "Invalid login credentials")
 		}
 
 		if (await comparePasswords(password, user.password) === false) {
-			return constructMessageResponse(res, 401, "invalid login credentials")
+			return constructMessageResponse(res, 401, "Invalid login credentials")
 		}
 
 		const token = generateToken({ sub: user.id })
