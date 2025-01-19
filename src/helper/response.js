@@ -64,11 +64,10 @@ const statusMessages = {
 }
 
 export const constructMessageResponse = (res, status, message = statusMessages[status]) => {
-	return res.status(status).json({
-		message
-	})
+	res.header("message", message)
+	return res.status(status).json({ message })
 }
 
 export const constructDataResponse = (res, status, data) => {
-	return res.status(status).json( data )
+	return res.status(status).json(data)
 }

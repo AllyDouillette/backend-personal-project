@@ -3,26 +3,16 @@ import { Card } from "../src/helper/constructors.js"
 import  { createUserDb } from "../src/domain/user.js"
 import { User } from "../src/helper/constructors.js"
 import { hashString } from "../src/helper/hashing.js"
-import { processArray,
-	generalVocabGermanToFrench,
-	generalVocabFrenchToGerman,
-	verbsGermanToFrench,
-	verbsFrenchToGerman,
-	adjectivesGermanToFrench,
-	adjectivesFrenchToGerman,
-	adverbsFrenchToGerman
-} from "../src/data/actualcards.js"
 import { createCategoryDb } from "../src/domain/category.js"
 import { createStatisticDb, updateStatisticDb } from "../src/domain/statistic.js"
 const prisma = new PrismaClient()
 
 async function seed () {
-	// create multiple users
-	const mom = await createUserDb("hummel", "susnoy@gmx.de", "fleißigesbienchen")
+	// create user
 	const demoAccount = await createUserDb("DemoDomino", "rebecca.noy@gmx.de", "lernmausi")
 
-	const statistic1 = await createStatisticDb(mom.id, new Date(new Date(2023,10,29).setUTCHours(0,0,0,0)).toISOString())
-	const statistic2 = await createStatisticDb(mom.id, new Date(new Date(2024,0,1).setUTCHours(0,0,0,0)).toISOString())
+	const statistic1 = await createStatisticDb(demoAccount.id, new Date(new Date(2023,10,29).setUTCHours(0,0,0,0)).toISOString())
+	const statistic2 = await createStatisticDb(demoAccount.id, new Date(new Date(2024,0,1).setUTCHours(0,0,0,0)).toISOString())
 
 	console.log(statistic1)
 	console.log(statistic2)
@@ -43,14 +33,6 @@ async function seed () {
 
 	await createUserDb("admin", "", "letmeinI'manAdmin", "ADMIN")
 
-	const momCategory1 = await createCategoryDb("Vocabulaire générale – D zu F", mom.id)
-	const momCategory2 = await createCategoryDb("Vocabulaire générale – F zu D", mom.id)
-	const momCategory3 = await createCategoryDb("Verbes – D zu F", mom.id)
-	const momCategory4 = await createCategoryDb("Verbes – F zu D", mom.id)
-	const momCategory5 = await createCategoryDb("Adjectives – D zu F", mom.id)
-	const momCategory6 = await createCategoryDb("Verbes – F zu D", mom.id)
-	const momCategory7 = await createCategoryDb("Adverbes – F zu D", mom.id)
-
 	const randLevel = () => Math.min(parseInt(Math.random() * 11), 10)
 	const randDate = () => {
 		const milliSecondsInYear = 1000 * 60 * 60 * 24 * 365
@@ -59,31 +41,6 @@ async function seed () {
 		return date.toISOString()
 	}
 	const randReps = (level) => level + parseInt(Math.random() * 5)
-
-	const momCategories = [momCategory1, momCategory2, momCategory3, momCategory4, momCategory5, momCategory6, momCategory7]
-	const momCardArrays = [generalVocabGermanToFrench, generalVocabFrenchToGerman, verbsGermanToFrench, verbsFrenchToGerman, adjectivesGermanToFrench, adjectivesFrenchToGerman, adverbsFrenchToGerman]
-
-	const processedCardArrays = momCardArrays.map((cardArray, index) => {
-		const category = momCategories[index]
-		const newCardArray = processArray(cardArray)
-		newCardArray.forEach((card) => {
-			card.setCategory(category.id)
-			card.setOwner(mom.id)
-			card.level = randLevel()
-			if (card.level > 0) {
-				card.lastAskedAt = randDate()
-			}
-			card.repetitions = randReps(card.level)
-		})
-		return newCardArray
-	})
-
-	const batchCreate = async (cards) => {
-		const createdCards = await prisma.card.createMany({ data: cards })
-		console.log(createdCards)
-	}
-
-	await Promise.allSettled(processedCardArrays.map(cardarray => batchCreate(cardarray)))
 
 	const demoCategory = await createCategoryDb("Assorted facts", demoAccount.id)
 	const demoCards = [
